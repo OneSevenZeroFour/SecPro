@@ -1,0 +1,6 @@
+#屏蔽压缩文件
+*.zip
+*.rar
+#屏蔽node_modules
+node_modules/
+
