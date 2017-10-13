@@ -4,7 +4,9 @@ import Vue from 'vue';
 Vue.use(VueRouter);
 
 import vHeader from '../components/header/header.vue';
-import vFooter from '../components/footer/footer.vue'
+import vFooter from '../components/footer/footer.vue';
+import vPersonal from '../components/Personal/personal.vue';
+
 const routes = [{
 	path: '/header',
 	name: 'header',
@@ -13,6 +15,10 @@ const routes = [{
 	path: '/footer',
 	name: 'footer',
 	component: vFooter
+},{
+	path: '/personal',
+	name: 'personal',
+	component: vPersonal
 }];
 
 const router = new VueRouter({

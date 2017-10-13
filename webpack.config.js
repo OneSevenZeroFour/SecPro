@@ -52,9 +52,9 @@ module.exports = {
 					loader: 'style-loader'
 				}, {
 					loader: 'css-loader',
-					options: {
-						modules: true
-					}
+					// options: {
+					// 	modules: true
+					// }
 				}, {
 					loader: 'postcss-loader'
 				}]
@@ -65,13 +65,17 @@ module.exports = {
 					loader: 'style-loader'
 				}, {
 					loader: 'css-loader',
-					options: {
-						modules: true
-					}
+					// options: {
+					// 	modules: true
+					// }
 				}, {
 					loader: 'sass-loader'
 				}]
-			}
+			},{
+				test: /\.(woff|svg|eot|ttf)$/,
+				//exclude: /node_modules/,
+				loader: 'file-loader'
+			},
 		]
 	},
 	plugins: [
