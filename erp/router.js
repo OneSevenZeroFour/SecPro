@@ -1,5 +1,5 @@
 var detail = require('./detail');
-
+var personal = require('./personal/personal');
 
 module.exports = function(app){
 	app.all("*", function(req, res, next){
@@ -12,6 +12,6 @@ module.exports = function(app){
 		}
 		
 		detail(app);
-		
+		personal(app);
 	})
 }

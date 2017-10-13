@@ -35,10 +35,10 @@ app.get('/',function(req, res){
 
 
 var server = http.createServer(app);
+
 server.listen(process.env.PORT || 3000, function(){
 	console.log('server start port %j', server.address());
 })
 
 var router = require('./erp/router')(app);
-
 

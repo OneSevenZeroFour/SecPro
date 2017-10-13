@@ -12,7 +12,11 @@ const mutations = {
 
 const actions = {
 	headerSend({commit}, data){
-		Vue.http.get('http://localhost:3000/detail')
+		Vue.axios.get('http://localhost:3000/detail',{
+			params: {
+				data: '123'
+			}
+		})
 		.then(response=> {
 			commit('setHeader', response.data)
 		})

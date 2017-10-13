@@ -4,6 +4,7 @@
 		<button @click="sendMsg">sendMsg</button>
 		<div>{{getMsg}}</div>
 		<div>123</div>
+		
 	</div>
 </template>
 <script>
