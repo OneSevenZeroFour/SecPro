@@ -7,6 +7,7 @@ import vHeader from '../components/header/header.vue';
 import vFooter from '../components/footer/footer.vue';
 import vPersonal from '../components/Personal/personal.vue';
 import vLogin from '../components/login/login.vue';
+import vRegister from '../components/register/register.vue';
 import vSoftware from '../components/Software/software.vue';
 
 const routes = [{
@@ -14,7 +15,7 @@ const routes = [{
 	name: 'header',
 	component: vHeader
 }, {
-	path: '/footer',
+	path: '/footer/:id',
 	name: 'footer',
 	component: vFooter
 }, {
@@ -26,13 +27,18 @@ const routes = [{
 	name: 'login',
 	component: vLogin
 }, {
+	path: '/register',
+	name: 'register',
+	component: vRegister
+}, {
 	path: '/software',
 	name: 'software',
-	component: vSoftware,
-	children: [{
-		path: '/:headerlist',
-		component: vSoftWareHeader
-	}]
+	component: vSoftware
+	// children: [{
+	// 	path: 'headerlist',
+	// 	name: 'headerlist',
+	// 	component: vSoftWareHeader
+	// }]
 }];
 
 const router = new VueRouter({
