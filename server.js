@@ -36,7 +36,7 @@ app.get('/',function(req, res){
 
 var server = http.createServer(app);
 
-server.listen(process.env.PORT || 3000, function(){
+server.listen(8080, function(){
 	console.log('server start port %j', server.address());
 })
 

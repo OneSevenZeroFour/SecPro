@@ -1,5 +1,6 @@
 var detail = require('./detail');
 var personal = require('./personal/personal');
+var login = require('./login/login');
 
 module.exports = function(app){
 	app.all("*", function(req, res, next){
@@ -13,5 +14,6 @@ module.exports = function(app){
 		
 		detail(app);
 		personal(app);
+		login(app);
 	})
 }
