@@ -40,5 +40,6 @@ server.listen(8080, function(){
 	console.log('server start port %j', server.address());
 })
 
-var router = require('./erp/router')(app);
+// 连接数据库
+// var router = require('./erp/router')(app);
 

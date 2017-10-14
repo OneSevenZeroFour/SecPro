@@ -9,6 +9,7 @@ import vPersonal from '../components/Personal/personal.vue';
 import vLogin from '../components/login/login.vue';
 import vRegister from '../components/register/register.vue';
 import vSoftware from '../components/Software/software.vue';
+import vGame from '../components/Game/game.vue';
 
 const routes = [{
 	path: '/header',
@@ -34,11 +35,10 @@ const routes = [{
 	path: '/software',
 	name: 'software',
 	component: vSoftware
-	// children: [{
-	// 	path: 'headerlist',
-	// 	name: 'headerlist',
-	// 	component: vSoftWareHeader
-	// }]
+},{
+	path:'/game',
+	name:'game',
+	component:vGame
 }];
 
 const router = new VueRouter({

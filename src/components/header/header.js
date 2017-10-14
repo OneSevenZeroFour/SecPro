@@ -12,7 +12,7 @@ const mutations = {
 
 const actions = {
 	headerSend({commit}, data){
-		Vue.axios.get('http://localhost:3000/detail',{
+		Vue.axios.get('http://localhost:8080/detail',{
 			params: {
 				data: '123'
 			}
