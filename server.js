@@ -33,6 +33,10 @@ app.get('/',function(req, res){
 	res.sendFile(__dirname + '/index.html');
 })
 
+app.get('/agency',function(req,res){
+	var asd = req.query;
+	console.log(req.query)
+})
 
 var server = http.createServer(app);
 server.listen(process.env.PORT || 3000, function(){

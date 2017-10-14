@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 import vHeader from '../components/header/header.vue';
 import vFooter from '../components/footer/footer.vue';
 import vPersonal from '../components/Personal/personal.vue';
+import vRecommend from '../components/recommend/recommend.vue';
 
 const routes = [{
 	path: '/header',
@@ -19,6 +20,10 @@ const routes = [{
 	path: '/personal',
 	name: 'personal',
 	component: vPersonal
+},{
+	path: '/recommend',
+	name: 'recommend',
+	component: vRecommend
 }];
 
 const router = new VueRouter({
