@@ -2,33 +2,33 @@
 	<div>
 		<el-row>
 		  <el-col :span="24"><div class="grid-content bg-purple-dark">
-		  		
+		  		<Carousel></Carousel>
 		  </div></el-col>
 		</el-row>	
 	</div>
 </template>
 
 <script>
+	import Carousel from './Carousel/Carousel.vue';
 	export default {
-	data(){
-		return {
+		data(){
+			return {
+				
+			}
+		},
+		methods:{
 			
+		},
+		computed:{
+			
+		},
+		mounted(){
+			
+		},
+		components: {
+			Carousel
 		}
-	},
-	methods:{
-		
-	},
-	computed:{
-		
-	},
-	mounted(){
-		this.$http.get('http://127.0.0.1:3000/agency?id=123',{params:'params'}).then(response => {
-			console.log(response)
-		}, response => {
-//			 error callback
-		});
-	},
-}
+	}
 </script>
 
 <style>
@@ -42,7 +42,7 @@
     border-radius: 4px;
   }
   .bg-purple-dark {
-    background: #99a9bf;
+    background: white;
   }
   .grid-content {
     border-radius: 4px;

@@ -5,7 +5,15 @@
 </template>
 <script>
 export default {
-  
+	data(){
+		return {
+			list: [{
+				title: '',
+				img: '',
+				
+			},{}],
+		}
+	}
 }
 </script>
 

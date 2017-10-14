@@ -5,7 +5,7 @@ module.exports = function () {
 		host: 'localhost',
 		user: 'root',
 		password: '',
-		database: 'cpro'
+		database: 'youyou'
 	});
 	connection.connect();
 

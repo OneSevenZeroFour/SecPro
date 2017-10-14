@@ -7,6 +7,8 @@ import vHeader from '../components/header/header.vue';
 import vFooter from '../components/footer/footer.vue';
 import vPersonal from '../components/Personal/personal.vue';
 import vRecommend from '../components/recommend/recommend.vue';
+import vSoftware from '../components/Software/software.vue';
+
 
 const routes = [{
 	path: '/header',
@@ -21,13 +23,20 @@ const routes = [{
 	name: 'personal',
 	component: vPersonal
 },{
+	path: '/software',
+	name: 'software',
+	component: vSoftware,
+//	children: [{
+//		path:'/:headerlist',
+//		component:vSoftWareHeader
+//	}]
+},{
 	path: '/recommend',
 	name: 'recommend',
 	component: vRecommend
 }];
 
 const router = new VueRouter({
-	
 	routes
 })
 
