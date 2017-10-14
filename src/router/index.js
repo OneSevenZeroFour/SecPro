@@ -7,23 +7,32 @@ import vHeader from '../components/header/header.vue';
 import vFooter from '../components/footer/footer.vue';
 import vPersonal from '../components/Personal/personal.vue';
 import vLogin from '../components/login/login.vue';
+import vSoftware from '../components/Software/software.vue';
 
 const routes = [{
 	path: '/header',
 	name: 'header',
 	component: vHeader
-},{
+}, {
 	path: '/footer',
 	name: 'footer',
 	component: vFooter
-},{
+}, {
 	path: '/personal',
 	name: 'personal',
 	component: vPersonal
-},{
+}, {
 	path: '/login',
 	name: 'login',
 	component: vLogin
+}, {
+	path: '/software',
+	name: 'software',
+	component: vSoftware,
+	children: [{
+		path: '/:headerlist',
+		component: vSoftWareHeader
+	}]
 }];
 
 const router = new VueRouter({
@@ -35,4 +44,3 @@ router.beforeEach((to, from, next) => {
 })
 
 export default router
-
