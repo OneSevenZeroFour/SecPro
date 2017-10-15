@@ -13,9 +13,7 @@
 	export default {
 		data() {
 			return {
-
 				Value: '1',
-				
 				//头部数据
 				softwareHeader: [{
 					content: "推荐",

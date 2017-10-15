@@ -60,7 +60,7 @@
 		},
 		mounted() {
 			
-			//  http://120.76.205.241:8000/mobileapp/mobile360?sort={0是最热1是最新}&catid={类名}&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo
+			
 
 		},
 		methods: {

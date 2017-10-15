@@ -4,7 +4,7 @@
 		<!--我们都在用-->
 		<ul class="we_use">
 			<h4>{{cont.title}}</h4>
-			<li v-for="n in ">
+			<li v-for="n in cont[0].listDate">
 				<a href="">
 					<div class="soft_small_img">
 						<img src="" alt="" />
@@ -54,49 +54,87 @@
 		data() {
 			return {
 				weUse: "",
+				listDate:"",
 				cont: [{
 					title: "大家都在用",
-					ajaxUrl: "",
+					ajaxUrl: "*",
 					listData: "",
 					listid: 0,
 
 				}, {
 					title: "小编推荐",
-					ajaxUrl: "",
+					ajaxUrl: "社交",
 					listData: "",
 					listid: 1
 				}, {
 					title: "会过日子从省钱开始",
-					ajaxUrl: "",
+					ajaxUrl: "理财",
 					listData: "",
 					listid: 2
 				}, {
 					title: "喂马劈材，周游世界",
-					ajaxUrl: "",
+					ajaxUrl: "旅游",
 					listData: "",
 					listid: 3
 				}, {
 					title: "猜你喜欢",
-					ajaxUrl: "",
+					ajaxUrl: "音乐",
 					listData: "",
 					listId: 4
 
 				}]
 			}
 		},
+		computed:{
+			
+		},
 		methods: {
 //			//ajax请求，获取数据后附给对应的listdata
-			getListData(id){
-				var self = this;
-//				$.ajax({
-//						type: "get",
-//						url: self.cont[id].ajaxUrl,
-//						success: function(data) {
-//							self.cont[id].listdata = data
-//						}
-//
-//				}
+			getSoteDate(rote,index){
+//				console.log(rote,index)
+//				console.log(encodeURI(rote));
+				var self=this
+				var rote=encodeURI(rote)
+				var urlStr = "http://120.76.205.241:8000/mobileapp/mobile360?sort=1&catid="+rote+"&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo";
+				console.log(urlStr,index)
+				this.axios.get('http://127.0.0.1:8080/agency', {
+					params: {
+						url:urlStr
+					}
+				}).then(function(response) {
+					console.log(response.data,index);
+					this.listDate=response.data
+					//由于线束每次只能获取一个数据
+//					self.cont[index].listData=response.data.data
+				}).catch(function(response) {
+//					console.log(response);
+				});
 			}
+		},
+		mounted(){
+            var self = this;
+//          this.getSoteDate("生活",0);
+            this.getSoteDate("社交",1)
+            this.getSoteDate("*",2)
+            
+			this.cont.forEach(function(item,index){
+//				console.log(item.ajaxUrl,index)
+					if(item<=0){
+						self.getSoteDate(item.ajaxUrl,index) ;
+					}else{
+						setTimeout(function(){
+					self.getSoteDate(item.ajaxUrl,index) ;
+				},index*1000)
+					}
+					
+			
+				
+					
+//				
+				console.log(item.ajaxUrl,index,"----------------------------------")
+			
+			})
+				
 		}
 	}
 </script>

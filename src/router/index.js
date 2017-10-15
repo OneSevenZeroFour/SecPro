@@ -37,8 +37,9 @@ const routes = [{
 	path: '/register',
 	name: 'register',
 	component: vRegister
-}, {
+},{
 	path: '/software',
+	redirect: '/software/recommend',
 	name: 'software',
 	component: vSoftware,
 	children: [{
