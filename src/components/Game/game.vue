@@ -1,20 +1,26 @@
 <template>
-    <div class="game">
-        我是游戏页
+    <div>
+        <search></search>
+        <shuju></shuju>
     </div>
 </template>
 <script>
+import search from './search.vue';
+import shuju from './shuju.vue';
 export default {
     data(){
         return {
-            
+
         }
+    },
+    components:{
+        search:search,
+        shuju:shuju
     }
+
 }
 </script>
 
 <style lang="scss" scoped>
-    .game{
-        color:red;
-    }
+    
 </style>

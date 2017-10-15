@@ -2,14 +2,16 @@ import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios'
 import ElementUI from 'element-ui';
+import WeUI from 'weui';
 import App from './App.vue';
 import router from './router';
 import store from './store';
 
 import './assets/css/common.css';
 
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios);
 Vue.use(ElementUI);
+Vue.use(WeUI);
 
 
 new Vue({
