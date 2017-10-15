@@ -9,7 +9,13 @@ import vPersonal from '../components/Personal/personal.vue';
 import vLogin from '../components/login/login.vue';
 import vRegister from '../components/register/register.vue';
 import vSoftware from '../components/Software/software.vue';
+
+import vSote from '../components/Software/sote.vue';
+import vRanking from '../components/Software/ranking.vue';
+import vRecommend from '../components/Software/recommend.vue';
+
 import vGame from '../components/Game/game.vue';
+
 
 const routes = [{
 	path: '/header',
@@ -34,7 +40,17 @@ const routes = [{
 }, {
 	path: '/software',
 	name: 'software',
-	component: vSoftware
+	component: vSoftware,
+	children: [{
+		path: 'sote',
+		component: vSote
+	},{
+		path: 'ranking',
+		component: vRanking
+	},{
+		path: 'recommend',
+		component: vRecommend
+	}]
 },{
 	path:'/game',
 	name:'game',
