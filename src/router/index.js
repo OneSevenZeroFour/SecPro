@@ -8,7 +8,9 @@ import vFooter from '../components/footer/footer.vue';
 import vPersonal from '../components/Personal/personal.vue';
 import vLogin from '../components/login/login.vue';
 import vSoftware from '../components/Software/software.vue';
-
+import vSote from '../components/Software/sote.vue';
+import vRanking from '../components/Software/ranking.vue';
+import vRecommend from '../components/Software/recommend.vue';
 const routes = [{
 	path: '/header',
 	name: 'header',
@@ -30,8 +32,14 @@ const routes = [{
 	name: 'software',
 	component: vSoftware,
 	children: [{
-		path: '/:headerlist',
-		component: vSoftWareHeader
+		path: 'sote',
+		component: vSote
+	},{
+		path: 'ranking',
+		component: vRanking
+	},{
+		path: 'recommend',
+		component: vRecommend
 	}]
 }];
 

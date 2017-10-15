@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul,li,body,h5,h6{
+		margin:0;
+		padding:0;
+		font-weight:normal;
+	}
+	ul,li{
+		list-style: none;
+	}
+	a{    
+		text-decoration: none;
+	}
+	html{
+		font-size:20px;
+	}
+	.sotes_list{
+		overflow:hidden;
+	}
+	.software_sote_list{
+				display:flex;
+				padding:1rem 0;
+				border-bottom: 7px solid #D9D9D9;
+			}
+			.list_one{
+				flex:3;
+			}
+	/*左边*/
+	.sote_title{
+		color:rgb(32, 160, 255);
+		font-size:1.6rem;
+		text-align: center;
+		margin-top:0.5rem
+	}
+	.sote_img{
+		width:5rem;
+		height: 5rem;
+		margin:auto;
+	}
+	.sote_img img{
+		width: 5rem;
+		height: 5rem;
+	}
+	
+	.sote_list{
+		float:left;
+	}
+	/*右边*/
+	.detail_sote_list{
+		float:right;
+		flex:8;
+		padding:1rem 1rem;
+	}
+	.detail_sote_list  a{
+		color:#3E5268;
+		font-size:1.4rem;
+		width:7rem;
+		height: 2rem;
+		line-height: 2rem;
+		display:inline-block;
+		padding:  0.6rem
+		
+	}
+		</style>
+	</head>
+
+	<body>
+		<div id="software_sote">
+			<li class="software_sote_list" v-for="n in cont">
+				
+					<div class="list_one">
+						<div class="sote_img"><img src="../../assets/images/roteone1.png" alt="" /></div>
+						<h5 class="sote_title">{{n.title}}<i class="el-icon-arrow-right"></i></h5>
+					</div>
+
+					<div class="detail_sote_list">
+						<a href="" v-for="t in n.sote">
+							购物快乐</a><a href="" v-for="t in n.sote">
+							购物快乐</a><a href="" v-for="t in n.sote">
+							购物快乐</a><a href="" v-for="t in n.sote">
+							购物快乐</a><a href="" v-for="t in n.sote">
+							购物快乐</a>
+						
+					</ul>
+				
+			</li>
+		</div>
+	</body>
+
+</html>

@@ -32,6 +32,24 @@ app.use(WebpackHotMiddleWare(compiler,{
 app.get('/',function(req, res){
 	res.sendFile(__dirname + '/index.html');
 })
+//服务器代理
+app.get('/agency',function(req,res){
+	res.append('Access-Control-Allow-Origin','*');
+	var data = req.query;
+	var url = data.url;
+	http.get(url,function(re){
+		var data = "";
+		re.setEncoding('utf8');
+		re.on("data",function(chunk){
+			data+=chunk
+		})
+		re.on("end",function(){
+			res.send(data)
+		})
+	});
+})
+
+
 
 
 var server = http.createServer(app);
@@ -40,5 +58,5 @@ server.listen(8080, function(){
 	console.log('server start port %j', server.address());
 })
 
-var router = require('./erp/router')(app);
+//var router = require('./erp/router')(app);
 
