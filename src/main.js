@@ -6,15 +6,11 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
-//
 import './assets/css/common.css';
-
-//import 'element-ui/lib/theme-default/index.css'
 
 Vue.use(VueAxios, axios)
 Vue.use(ElementUI);
 
-//console.log(Vue.http)
 
 new Vue({
 	el: '#app',

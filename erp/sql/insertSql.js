@@ -19,9 +19,19 @@ module.exports = function (cObj) {
 			value.push(res.data[item]);
 		}
 		sql += `(${key.join(',')})`;
-		sql += ` values`;
-		sql += `(${value.join(',')})`;
+		sql += ` values (`;
+		value.forEach(function(item){
+			if(Object.prototype.toString.call(item) === '[object String]'){
+				sql += `'${item}'`
+			}else{
+				sql += `${item}`
+			}
+			sql += `,`
+		})
+		sql = sql.slice(0, sql.length-1);
+		sql += `);`;
 
+		//res.callback(Aresult(sql));
 		connection.query(sql, function (err, result, fields) {
 			if (err) {
 				res.callback(Aresult(err));

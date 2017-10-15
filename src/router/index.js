@@ -7,16 +7,22 @@ import vHeader from '../components/header/header.vue';
 import vFooter from '../components/footer/footer.vue';
 import vPersonal from '../components/Personal/personal.vue';
 import vLogin from '../components/login/login.vue';
+import vRegister from '../components/register/register.vue';
 import vSoftware from '../components/Software/software.vue';
+
 import vSote from '../components/Software/sote.vue';
 import vRanking from '../components/Software/ranking.vue';
 import vRecommend from '../components/Software/recommend.vue';
+
+import vGame from '../components/Game/game.vue';
+
+
 const routes = [{
 	path: '/header',
 	name: 'header',
 	component: vHeader
 }, {
-	path: '/footer',
+	path: '/footer/:id',
 	name: 'footer',
 	component: vFooter
 }, {
@@ -27,6 +33,10 @@ const routes = [{
 	path: '/login',
 	name: 'login',
 	component: vLogin
+}, {
+	path: '/register',
+	name: 'register',
+	component: vRegister
 }, {
 	path: '/software',
 	name: 'software',
@@ -41,6 +51,10 @@ const routes = [{
 		path: 'recommend',
 		component: vRecommend
 	}]
+},{
+	path:'/game',
+	name:'game',
+	component:vGame
 }];
 
 const router = new VueRouter({

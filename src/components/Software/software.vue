@@ -6,12 +6,14 @@
 			</el-tab-pane>
 		</el-tabs>
 	</div>
-
 </template>
+
+
 <script>
 	export default {
 		data() {
 			return {
+
 				Value: '1',
 				
 				//头部数据
@@ -47,6 +49,7 @@
 		methods: {
 			clickTab(targetName) {
 				let self = this;
+
 				let tabs = this.softwareHeader;
 				setTimeout(function() {
 					tabs.forEach(function(item) {
@@ -77,3 +80,5 @@
 		transform:translateX(-50%) ;
 	}
 </style>
+
+

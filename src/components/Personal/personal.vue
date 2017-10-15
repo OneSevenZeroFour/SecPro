@@ -1,74 +1,27 @@
 <template>
-	<div>
-		<div class="header">
-			<el-upload class="avatar-uploader" 
-			action="http://localhost:3000/fileupload" 
-			:show-file-list="false" 
-			:on-success="handleAvatarSuccess" 
-			:before-upload="beforeAvatarUpload"
-			:multiple="false"
-			:name="'touxiang'"
-			>
-				<img v-if="imageUrl" :src="imageUrl" class="avatar">
-				<i v-else class="el-icon-plus avatar-uploader-icon"></i>
-			</el-upload>
+	<div class="sideBar">
+		<div class="side">
+			
 		</div>
 	</div>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				imageUrl: ''
-			};
-		},
-		methods: {
-			handleAvatarSuccess(res, file) {
-				console.log(res, file)
-			},
-			beforeAvatarUpload(file) {
-				const isJPG = file.type === 'image/jpeg';
-				const isLt2M = file.size / 1024 / 1024 < 2;
+export default {
 
-				if (!isJPG) {
-					this.$message.error('上传头像图片只能是 JPG 格式!');
-				}
-				if (!isLt2M) {
-					this.$message.error('上传头像图片大小不能超过 2MB!');
-				}
-				return isJPG && isLt2M;
-			}
-		}
-	}
+}
 </script>
 
 <style lang="scss" scoped>
-.avatar-uploader .el-upload {
-	border: 1px dashed #d9d9d9;
-	border-radius: 6px;
-	cursor: pointer;
-	position: relative;
-	overflow: hidden;
+.sideBar{
+	width: 240px;
+	height: 100%;
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	top: 0;
+	border-right:1px solid #ccc;
+	background: #efefef;
 }
 
-.avatar-uploader .el-upload:hover {
-	border-color: #20a0ff;
-}
-
-.avatar-uploader-icon {
-	font-size: 28px;
-	color: #8c939d;
-	width: 178px;
-	height: 178px;
-	line-height: 178px;
-	text-align: center;
-}
-
-.avatar {
-	width: 178px;
-	height: 178px;
-	display: block;
-}
 </style>
-
