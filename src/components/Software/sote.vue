@@ -6,9 +6,9 @@
 				<h5 class="sote_title">{{n.title}}<i class="el-icon-arrow-right"></i></h5>
 			</div>
 			<div class="detail_sote_list">
-				<a v-for="t in n.sote" @click=getSoteDate(t)>
-					{{t}}</a>
-				</a>
+				<router-link v-for="t in n.sote" :to="n.toUrl" @click=getSoteDate(t)>
+					{{t}}
+				</router-link>
 			</div>
 
 		</li>
@@ -23,35 +23,35 @@
 				cont: [{
 					title: "生活服务",
 					img: "",
-					ajaxUrl: "",
+					toUrl: "/softwarelist/living",
 					listData: "",
 					listid: 1,
 					sote: ["求职招聘", "电影演出", "代驾", "查违章", "外卖", "卖车买车"]
 				}, {
 					title: "购物",
 					img: "",
-					ajaxUrl: "",
+					toUrl: "/softwarelist/shopping",
 					listData: "",
 					listid: 1,
 					sote: ["求职招聘", "电影演出", "代驾", "查违章", "外卖", "卖车买车"]
 				}, {
 					title: "运动健康",
 					img: "",
-					ajaxUrl: "",
+					toUrl: "/softwarelist/exercice",
 					listData: "",
 					listid: 2,
 					sote: ["求职招聘", "电影演出", "代驾", "查违章", "外卖", "卖车买车"]
 				}, {
 					title: "理财",
 					img: "",
-					ajaxUrl: "",
+					toUrl: "/softwarelist/money",
 					listData: "",
 					listid: 3,
 					sote: ["求职招聘", "电影演出", "代驾", "查违章", "外卖", "卖车买车"]
 				}, {
 					title: "社交",
 					img: "",
-					ajaxUrl: "",
+					toUrl: "/softwarelist/relations",
 					listData: "",
 					listId: 4,
 					sote: ["求职招聘", "电影演出", "代驾", "查违章", "外卖", "卖车买车"]

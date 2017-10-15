@@ -21,6 +21,10 @@
 		list-style: none;
 	}
 	/*软件使用量信息*/
+	body{
+		width: 125%;
+		
+	}
 	h6{
 		font-size: 1.2rem;
 		color:#b4b4b4;
@@ -30,13 +34,13 @@
 	/*软件名称*/
 	h5{
 		font-size: 1.4rem;
-		color:#8C939D;
+		color:#000;
 		text-align: center;
 	}
 	/*每个主题标题*/
 	h4{
 		font-size: 1.6rem;
-		color:#8C939D;
+		color:#000;
 		padding:1rem;
 	}
 		html{
@@ -80,20 +84,31 @@
 			border:1px solid #20A0FF;
 		}
 		/*下面横排版的软件列表，可写为公共模板*/
-		.soteList1{
+		.software_recommend{
+			width: 100%;
+		}
+		.heng_li{
 			display: flex;
 		}
-		.soft_img{
-			flex:1;
+		.heng_li a{
+			display:inline-block;
+			flex:4;
+			display:flex;
+		}
+		.heng_li .soft_small_img {
+			display:inline-block;
+			text-align: center;
+			flex:2;
 		}	
-		.soft_info {
+		.heng_li .soft_info {
+			margin:20px;
 			flex:3;
 			
 		}
 		.soft_info h5,.soft_info h6{
 			text-align: left;
 		}
-		.download_btn_right{
+		.heng_li .download_btn_right{
 			flex:1;
 			
 		}	
@@ -128,7 +143,7 @@
 				<div class="soteList1" v-for="n in cont">
 					<h4>{{n.title}}</h4>
 					<ul>
-						<li v-for="n in cont.listData">
+						<li v-for="n in cont.listData" class="heng_li">
 							<a href="">
 								<div class="soft_small_img">
 									<img src="../../assets/images/roteone1.png" alt="" />

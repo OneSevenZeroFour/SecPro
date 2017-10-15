@@ -14,8 +14,10 @@ import vSoftware from '../components/Software/software.vue';
 import vSote from '../components/Software/sote.vue';
 import vRanking from '../components/Software/ranking.vue';
 import vRecommend from '../components/Software/recommend.vue';
+import vSoftwaresList from '../components/Software/softwarelist.vue'
+import vList from '../components/Software/list.vue'
 
-import vGame from '../components/Game/game.vue';
+//import vGame from '../components/Game/game.vue';
 
 
 const routes = [{
@@ -54,9 +56,16 @@ const routes = [{
 		component: vRecommend
 	}]
 },{
+	path: '/softwarelist',
+	component: vSoftwaresList,
+	children: [{
+		path: ':list',
+		component: vList
+	}]
+},{
 	path:'/game',
 	name:'game',
-	component:vGame
+//	component:vGame
 }];
 
 const router = new VueRouter({
