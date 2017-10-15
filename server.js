@@ -27,7 +27,7 @@ app.use(WebpackHotMiddleWare(compiler,{
 	path: '/__webpack_hmr'
 }))
 
-//app.use(express.static(path.resolve(__dirname,'./')));
+app.use(express.static(path.resolve(__dirname,'./')));
 
 app.get('/',function(req, res){
 	res.sendFile(__dirname + '/index.html');
