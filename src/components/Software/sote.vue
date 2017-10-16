@@ -1,14 +1,13 @@
 <template>
 	<div id="software_sote">
 		<li class="software_sote_list" v-for="n in cont">
-			<div class="list_one" @click="getSoteDate(n.title)">
-				<div class="sote_img"><img alt="" /></div>
-				<h5 class="sote_title">{{n.title}}
-					<i class="el-icon-arrow-right"></i>
-				</h5>
+			<div class="list_one" >
+				<div class="sote_img"><img :src="n.img" alt="" /></div>
+				<h5 class="sote_title">{{n.title}}<i class="el-icon-arrow-right"></i></h5>
 			</div>
 			<div class="detail_sote_list">
-				<router-link v-for="(t, index) in n.sote" :key="index" :to="n.toUrl" @click="getSoteDate(t)">
+				<router-link v-for="t in n.sote" :to="'/softwarelist/'+t+'/hot'" :key="t">
+
 					{{t}}
 				</router-link>
 			</div>
@@ -24,35 +23,35 @@
 
 				cont: [{
 					title: "生活服务",
-					img: "",
+					img: require('../../assets/images/roteone1.png'),
 					toUrl: "/softwarelist/living",
 					listData: "",
 					listid: 1,
 					sote: ["求职招聘", "电影演出", "代驾", "查违章", "外卖", "卖车买车"]
 				}, {
 					title: "购物",
-					img: "",
+					img: require('../../assets/images/roteone2.png'),
 					toUrl: "/softwarelist/shopping",
-					listData: "",
+					listData:"",
 					listid: 1,
 					sote: ["求职招聘", "电影演出", "代驾", "查违章", "外卖", "卖车买车"]
 				}, {
 					title: "运动健康",
-					img: "",
+					img: require('../../assets/images/roteone3.png'),
 					toUrl: "/softwarelist/exercice",
 					listData: "",
 					listid: 2,
 					sote: ["求职招聘", "电影演出", "代驾", "查违章", "外卖", "卖车买车"]
 				}, {
 					title: "理财",
-					img: "",
+					img: require('../../assets/images/roteone4.png'),
 					toUrl: "/softwarelist/money",
 					listData: "",
 					listid: 3,
 					sote: ["求职招聘", "电影演出", "代驾", "查违章", "外卖", "卖车买车"]
 				}, {
 					title: "社交",
-					img: "",
+					img: require('../../assets/images/roteone5.png'),
 					toUrl: "/softwarelist/relations",
 					listData: "",
 					listId: 4,
@@ -65,24 +64,7 @@
 
 
 		},
-		methods: {
-			getSoteDate(rote) {
-				//console.log(encodeURI(rote));
-				var rote = encodeURI(rote)
-				var urlStr = "http://120.76.205.241:8000/mobileapp/mobile360?sort=1&catid=" + rote + "&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo";
-				//console.log(urlStr)
-				this.axios.get('http://127.0.0.1:8080/agency', {
-					params: {
-						url: urlStr
-					}
-				}).then(function(response) {
-					console.log(response);
-					console.log(response.data.data);
-				}).catch(function(response) {
-					console.log(response);
-				});
-			}
-		}
+		
 	}
 </script>
 
