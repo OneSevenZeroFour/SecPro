@@ -26,8 +26,7 @@ const actions = {
 			})
 			.then(response => {
 				rootState.dialog = false;
-				rootState.username = response.data.data[0].nickname || response.data.data[0].elephone;
-				rootState.userImg = response.data.data[0].avatar || baseUrl + '/src/assets/img/touxiang.jpg';
+				
 				state.data = response.data;
 
 			})

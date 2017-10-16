@@ -16,13 +16,21 @@ module.exports = function (cObj) {
 	if (Object.prototype.toString.call(res.data) === '[object Object]') {
 		if (Object.prototype.toString.call(res.target) === '[object Object]') {
 			for (var item in res.data) {
-				sql += ` ${res.item}='${res.data[item]}'`;
+				if(Object.prototype.toString.call(res.data[item]) === '[object String]'){
+					sql += ` ${item}='${res.data[item]}'`;
+				}else{
+					sql += ` ${item}=${res.data[item]}`;
+				}
 			}
 			sql += ` where`;
 			for(var item in res.target){
-				sql += ` ${item}='${res.target[item]}'`
+				if(Object.prototype.toString.call(res.target[item]) === '[object String]'){
+					sql += ` ${item}='${res.target[item]}'`;
+				}else{
+					sql += ` ${item}=${res.target[item]}`;
+				}
 			}
-
+			//res.callback(Aresult(sql));
 			connection.query(sql, function (err, result, fields) {
 				if (err) {
 					res.callback(Aresult(err));

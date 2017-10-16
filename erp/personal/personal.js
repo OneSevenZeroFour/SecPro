@@ -1,7 +1,8 @@
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var Aresult = require('../base/base');
-var insert = require('../sql/insertSql');
+var update = require('../sql/updateSql');
+var path = require('path');
 
 module.exports = function (app) {
 
@@ -14,7 +15,7 @@ module.exports = function (app) {
 	var storage = multer.diskStorage({
 		//设置上传后文件路径，uploads文件夹会自动创建。
 		destination: function (req, file, cb) {
-			cb(null, '../../src/assets/img')
+			cb(null, path.resolve(__dirname,'../../src/assets/img'));
 		},
 		//给上传文件重命名，获取添加后缀名
 		filename: function (req, file, cb) {
@@ -39,12 +40,15 @@ module.exports = function (app) {
 	});
 
 	app.post('/upload', function (req, res) {
-		var obj = req.query;
-		console.log(obj);
-
-		insert({
+		
+		var target = {id:req.body.data.id};
+		delete req.body.data.id;
+		var data = req.body.data;
+		console.log(data)
+		update({
 			sqlname: 'customer',
-			data: obj,
+			data,
+			target,
 			callback: function(data){
 				res.send(data);
 			}

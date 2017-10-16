@@ -13,10 +13,9 @@ import vPersonMsg from '../components/personmsg/personMsg.vue';
 import vSote from '../components/Software/sote.vue';
 import vRanking from '../components/Software/ranking.vue';
 import vRecommend from '../components/Software/recommend.vue';
-import vSoftwaresList from '../components/Software/softwarelist.vue'
-import vList from '../components/Software/list.vue'
-
-//import vGame from '../components/Game/game.vue';
+import vSoftwaresList from '../components/Software/softwarelist.vue';
+import vList from '../components/Software/list.vue';
+import vSetMsg from '../components/personmsg/setMsg.vue';
 
 
 const routes = [{
@@ -61,6 +60,10 @@ const routes = [{
 	path: '/personMsg',
 	name: 'personMsg',
 	component: vPersonMsg,
+},{
+	path: '/setMsg/:index',
+	name: 'setMsg',
+	component: vSetMsg
 }];
 
 
@@ -69,9 +72,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-	//console.log('to', to)
-	//console.log('from', to);
-	console.log(document.documentElement.scrollTop)
+	console.log(document.body.scrollTop)
 	next()
 })
 
