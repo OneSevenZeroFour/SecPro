@@ -1,15 +1,10 @@
 <template>
 	<div id="software_list_page">
-		<!--<el-input icon="el-icon-arrow-left el-icon-arrow-right" />-->
-		<!--<el-input icon="" />-->
-		<el-tabs v-model="Value" @tab-click="clickTab" >
-			
-			<el-tab-pane v-for="(item, index) in softwareHeader" :key="item.name" :label="item.title" :name="item.name">
-				<router-view></router-view>
-			</el-tab-pane>
-			
-		</el-tabs>
-		
+		<h4 class="list_title"><a href="#/software/sote">&lt </a>{{this.rote}}</h4>
+		<div class="listtwo">
+			<div class="btntwo" v-for="(item, index) in list" :key="item.name" :name="item.name"><router-link :to="'/softwarelist/'+rote+'/'+item.url" :name="item.name">{{item.title}} </router-link></div>
+		</div>
+		<router-view></router-view>
 	</div>
 </template>
 
@@ -17,20 +12,26 @@
 	export default {
 		data() {
 			return {
+				rote:"",
 				Value: '1',
 				//头部数据
-				softwareHeader: [{
+				list: [{
 					content: "",
 					title: "最热",
-					url: "/softwarelist/hot",
+					url: "hot",
 					name: "1",
 				}, {
-					content: "最新",
+					content: "",
 					title: "分类",
-					url: "/softwarelist/new",
+					url: "new",
 					name: "2"
 				}]
 			};
+		},
+		updated(){
+			let keyrote = this.$route.params.list;
+			this.rote = keyrote;
+			console.log(this.rote)
 		},
 	mounted(){
 			var currentRouter = this.$router.history.current.path;
@@ -40,26 +41,37 @@
 			}else if(currentRouter=="/softwarelist/new"){
 				this.Value="2"
 			}
+			let keyrote = this.$route.params.list;
+			this.rote = keyrote;
+			console.log(this.rote)
 		},
 		methods: {
-			clickTab(targetName) {
-				let self = this;
-
-				let tabs = this.softwareHeader;
-				setTimeout(function() {
-					tabs.forEach(function(item) {
-						if(item.name == targetName.name) {
-							self.$router.push(item.url)
-							self.Value=item.name
-						}
-					})
-				}, 0)
-			}
+			
+	
 		}
 	}
 </script>
 
 <style>
-	
-	
+	.list_title a{
+		display:inline-block;
+		font-size:1.8rem;
+		padding-right:1rem;
+	}
+	.listtwo{
+		display:flex;
+		
+	}
+	.btntwo{
+		flex:1;
+		overflow:hidden;
+		
+	}
+	.listtwo .btntwo:nth-child(1) a{
+		display: inline-block;
+		width: 4rem;
+		text-align: center;
+		background-color:#f8f8f8;
+		float:right;
+	}
 </style>

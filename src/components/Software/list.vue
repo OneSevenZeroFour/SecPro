@@ -3,21 +3,22 @@
 			<div class="soteList1" >
 				<h4 ></h4>
 				<ul>
-					<li class="heng_li">
-						<!--v-for="n in cont.listData"-->
-						<a href="">
+					<li class="heng_li" v-for="t in listData">
+				
+							<router-link class="totala" :to="'/details/'+t.title" >
 							<div class="soft_small_img">
-								<img src="" alt="" />
+								<img :src="t.avatarUrl" alt="" />
 							</div>
 							<div>
-								<h5>今日头条</h5>
+								<h5>{{t.tilte}}</h5>
 								<h6>3.14亿人在用</h6>
 								<h6>超过4亿用户的新闻客户端</h6>
 							</div>
-						</a>
+							</router-link>
+		
 						<div class="download_bottom download_right">
 							
-								<a href="">下载</a>
+								<a :href="t.fileOptions[0].url" download="t.com.yeezsoftky.tradermobile.qh">下载</a>
 							
 						</div>
 					</li>
@@ -27,6 +28,39 @@
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				listData:"",
+				page:1
+			}
+		},
+		methods:{
+			getSoteDate(rote, index,page){
+				var self = this
+				var rote = encodeURI(rote)
+				var urlStr =" http://120.76.205.241:8000/mobileapp/mobile360?sort="+index+"&kw="+rote+"&pageToken="+page+"&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo"
+//				"http://120.76.205.241:8000/mobileapp/mobile360?sort="+index+"&catid=" + rote + "&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo";
+				this.axios.get('http://127.0.0.1:8080/agency', {
+					params: {
+						url: urlStr
+					}
+				}).then(function(response) {
+					console.log(response.data, index);
+						var data = response.data.data;
+						self.listData  =data.splice(0,10);
+				}).catch(function(response) {
+					console.log(response);
+				});
+			}
+		},
+		mounted(){
+			let keyrote = this.$route.params.list;
+			this.rote = keyrote;
+			let page = this.page;
+			this.getSoteDate(keyrote,1,page)
+		}
+	}
 </script>
 
 <style>
@@ -54,13 +88,13 @@
 		display: inline-block;
 	}
 	.soft_small_img {
-			width:7rem;
-			height:7rem;
+			width:5rem;
+			height:5rem;
 			margin:1rem auto;
 		}
 		.soft_small_img img{
-			width:7rem;
-			height:7rem;
+			width:5rem;
+			height:5rem;
 			border:0;
 		}
 		.download_bottom{
@@ -80,7 +114,8 @@
 		}
 		.heng_li{
 			
-			
+			margin-left:1rem;
+			margin-bottom:1rem;
 			display: flex;
 		}
 		.heng_li a{

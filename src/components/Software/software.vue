@@ -2,13 +2,12 @@
 	<div id="software_page">
 		<el-tabs v-model="Value" @tab-click="clickTab">
 			<el-tab-pane v-for="(item, index) in softwareHeader" :key="item.name" :label="item.title" :name="item.name">
-				<router-view></router-view>
+				
 			</el-tab-pane>
 		</el-tabs>
+		<router-view></router-view>
 	</div>
 </template>
-
-
 <script>
 	export default {
 		data() {

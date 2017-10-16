@@ -2,52 +2,54 @@
 	<div class="software_recommend">
 		<div ><img class="topimg" src="../../assets/images/software1.jpg" alt="" /></div>
 		<!--我们都在用-->
+		<h4 @click="creatSoftware">{{firstlistData.title}}</h4>		
+		<div class="warp">
 		<ul class="we_use">
-			<h4 @click="creatSoftware">{{firstlistData.title}}</h4>
 			<!--v-for="(n,index) in firstlistData.listData" :key="index" v-if="irstlistData.listData"-->
-			<li >
-				<a class="totala" href="">
+			<li v-for="(n,index) in firstlistData.listData" :key="index">
+				<router-link class="totala" :to="'/details/'+n.title" >
 					<div class="soft_small_img">
-						<img src="" alt="" />
+						<img :src="n.avatarUrl" alt="" />
 					</div>
-					<h5>今日头条</h5>
+					<h5>{{n.title}}</h5>
 					<h6>3.14亿人在用</h6>
-				</a>
-
+				</router-link>
 				<!--下载按钮-->
 				<div class="download_bottom">
-					
-						<a href="">下载</a>
-					
+						<a :href="n.fileOptions[0].url" download="n.com.yeezsoftky.tradermobile.qh">
+							下载</a>
 				</div>
 
 			</li>
+			
 		</ul>
+		</div>
 		<!--轮播图（暂时不做）+小列表-->
 		<div class="allwarelist">
 			<div class="soteList1" v-for="n in cont">
 				<h4 @click="creatSoftware">{{n.title}}</h4>
-				<ul>
-					<li class="heng_li">
-						<!--v-for="n in cont.listData"-->
-						<a href="">
+					<ul>
+					<li class="heng_li" v-for="t in n.listData">
+							<router-link class="totala" :to="'/details/'+t.title" >
 							<div class="soft_small_img">
-								<img src="" alt="" />
+								<img :src="t.avatarUrl" alt="" />
 							</div>
 							<div>
-								<h5>今日头条</h5>
+								<h5>{{t.tilte}}</h5>
 								<h6>3.14亿人在用</h6>
 								<h6>超过4亿用户的新闻客户端</h6>
 							</div>
-						</a>
+							</router-link>
+		
 						<div class="download_bottom download_right">
 							
-								<a href="">下载</a>
+								<a :href="t.fileOptions[0].url" download="t.com.yeezsoftky.tradermobile.qh">下载</a>
 							
 						</div>
 					</li>
 				</ul>
-			</div>
+			
+				</div>
 		</div>
 	</div>
 </template>
@@ -55,6 +57,7 @@
 	export default {
 		data() {
 			return {
+				ajaxData:[],
 				firstlistData: {
 					title: "大家都在用",
 					ajaxUrl: "*",
@@ -86,9 +89,7 @@
 				}]
 			}
 		},
-		computed: {
-
-		},
+		
 		methods: {
 			//ajax请求，获取数据后附给对应的listdata
 			creatSoftware(){
@@ -98,34 +99,27 @@
 				console.log(this.firstlistData.listData);
 			},
 			getSoteDate(rote, index) {
-				
-//				console.log(this)
-				self = this
+				var self = this
 				var rote = encodeURI(rote)
-				var urlStr = "http://120.76.205.241:8000/mobileapp/mobile360?sort=1&catid=" + rote + "&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo";
-//				console.log(urlStr, index)
+				var urlStr = "http://120.76.205.241:8000/mobileapp/mobile360?sort=0&catid=" + rote + "&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo";
 				this.axios.get('http://127.0.0.1:8080/agency', {
 					params: {
 						url: urlStr
 					}
 				}).then(function(response) {
-					this.firstlistData.listData="哀兵必胜可能"
 					console.log(response.data, index);
 					if(index == 0) {
 //						console.log(self)
-						data = response.data.data;
-
-						self.firstlistData.listData  =data.splice(0,4);
+						var data = response.data.data;
+//						self.ajaxData=data.splice(0,4);
+						self.firstlistData.listData  =data.splice(0,8);
 						console.log(self.firstlistData)
-						
-//						self.firstlistData.listdata ="xiaoxiaxiaoscjaosj"
 					}
 					//由于线束每次只能获取一个数据
 					else{
 						var data=response.data.data
-						return self.cont[index].listData =data.splice(0,4);
+						 self.cont[index].listData =data.splice(0,4);
 						console.log(self.cont[index].listData)
-//						self.firstlistData
 					}
 					
 				}).catch(function(response) {
@@ -133,28 +127,22 @@
 				});
 			}
 		},
-		ready(){
-			
-		},
 		mounted() {
-//			this.firstlistData.listData="哀兵必胜可能"
-			this.getSoteDate("生活", 0);
-//			window.onload = function() {
-//				self.firstlistData.listData=",,,,,"
-//				self.getSoteDate("生活", 0);
-//				setTimeout(function() {
-//					self.getSoteDate("社交", 1)
-//				}, 1000);
-//				setTimeout(function() {
-//					self.getSoteDate("理财", 2)
-//				}, 2000);
-//				setTimeout(function() {
-//					self.getSoteDate("旅游", 3)
-//				}, 3000);
-//				setTimeout(function() {
-//					self.getSoteDate("音乐", 4)
-//				}, 4000)
-//			}
+//			console.log(2)
+			var self=this;
+			self.getSoteDate("生活", 0);
+			setTimeout(function() {
+				self.getSoteDate("社交", 1)
+			}, 1000);
+			setTimeout(function() {
+				self.getSoteDate("理财", 2)
+			}, 2000);
+			setTimeout(function() {
+				self.getSoteDate("旅游", 3)
+			}, 3000);
+			setTimeout(function() {
+				self.getSoteDate("音乐", 4)
+			}, 4000)
 			
 		}
 	}
@@ -192,24 +180,38 @@ body{
 		width: 100%;
 	}
 		.soft_small_img {
-			width:7rem;
-			height:7rem;
+			width:5rem;
+			height:5rem;
 			margin:1rem auto;
 		}
 		.soft_small_img img{
-			width:7rem;
-			height:7rem;
+			width:5rem;
+			height:5rem;
 			border:0;
 		}
 		/*每一个软件信息盒子*/
+		.warp{
+			width:100%;
+			 height:18rem;
+			 overflow: hidden;
+		}
 		.we_use{
-			overflow:hidden;
+			 width: 100%;
+			
+		    overflow: hidden;
+		    overflow-x: scroll;
+		    /*overflow-y: hidden;*/
+		    white-space: nowrap;
+		    /*-webkit-overflow-scrolling: touch;*/
+			    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    margin-bottom: -15px;
 			}
 		.we_use li{
 			padding:1rem;
-			width:20%;
+			width:82px;
 			float:left;
-			
 		}
 		.download_bottom{
 			margin-top:1rem;
@@ -217,7 +219,10 @@ body{
 			border:none;
 		}
 			
-	
+		.totala{
+			width:100%;
+			overflow: hidden;
+		}
 		.download_bottom a{
 			color:#20A0FF;
 			width:2.5rem;
@@ -232,7 +237,7 @@ body{
 		}
 		.heng_li{
 			
-			
+			margin-left:2rem;
 			display: flex;
 		}
 		.heng_li a{
@@ -255,6 +260,7 @@ body{
 		}
 		.heng_li h5,.heng_li h6{
 			text-align: left;
+			
 		}
 		.heng_li .download_right{
 			flex:1;
