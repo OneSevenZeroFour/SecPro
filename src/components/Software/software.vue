@@ -46,7 +46,6 @@
 		methods: {
 			clickTab(targetName) {
 				let self = this;
-
 				let tabs = this.softwareHeader;
 				setTimeout(function() {
 					tabs.forEach(function(item) {

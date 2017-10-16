@@ -54,7 +54,7 @@ const routes = [{
 	path: '/softwarelist',
 	component: vSoftwaresList,
 	children: [{
-		path: ':list/:rote',
+		path: ':list/:num',
 		component: vList
 	}]
 },{

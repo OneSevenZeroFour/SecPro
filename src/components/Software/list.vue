@@ -11,13 +11,12 @@
 							</div>
 							<div>
 								<h5>{{t.tilte}}</h5>
-								<h6>3.14亿人在用</h6>
+								<h6>{{t.downloadCount}}人已下载</h6>
 								<h6>超过4亿用户的新闻客户端</h6>
 							</div>
 							</router-link>
 		
 						<div class="download_bottom download_right">
-							
 								<a :href="t.fileOptions[0].url" download="t.com.yeezsoftky.tradermobile.qh">下载</a>
 							
 						</div>
@@ -56,9 +55,14 @@
 		},
 		mounted(){
 			let keyrote = this.$route.params.list;
+			let num = this.$route.params.num;
 			this.rote = keyrote;
 			let page = this.page;
-			this.getSoteDate(keyrote,1,page)
+			if(num=="hot"){
+				this.getSoteDate(keyrote,0,page);
+			}else{
+				this.getSoteDate(keyrote,1,page);
+			}	
 		}
 	}
 </script>
@@ -113,7 +117,6 @@
 			border:1px solid #20A0FF;
 		}
 		.heng_li{
-			
 			margin-left:1rem;
 			margin-bottom:1rem;
 			display: flex;
