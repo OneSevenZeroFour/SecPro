@@ -1,8 +1,5 @@
 import Vue from 'vue';
-import {
-	baseUrl
-} from '../../util/baseUrl';
-//import merge from 'merge';
+import {baseUrl} from '../../util/baseUrl';
 
 const state = {
 	data: {}
@@ -29,8 +26,10 @@ const actions = {
 			})
 			.then(response => {
 				rootState.dialog = false;
-				console.log(response)
+				rootState.username = response.data.data[0].nickname || response.data.data[0].elephone;
+				rootState.userImg = response.data.data[0].avatar || baseUrl + '/src/assets/img/touxiang.jpg';
 				state.data = response.data;
+
 			})
 	}
 }

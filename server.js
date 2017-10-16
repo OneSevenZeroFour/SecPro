@@ -21,13 +21,9 @@ app.use(WebpackDevMiddleWare(compiler,{
 	}
 }))
 
-app.use(WebpackHotMiddleWare(compiler,{
-	log: console.log,
-	heartbeat: 10 * 1000,
-	path: '/__webpack_hmr'
-}))
+app.use(WebpackHotMiddleWare(compiler))
 
-//app.use(express.static(path.resolve(__dirname,'./')));
+app.use(express.static(path.resolve(__dirname,'./')));
 
 app.get('/',function(req, res){
 	res.sendFile(__dirname + '/index.html');
@@ -41,5 +37,5 @@ server.listen(8080, function(){
 })
 
 // 连接数据库
-// var router = require('./erp/router')(app);
+var router = require('./erp/router')(app);
 

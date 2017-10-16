@@ -17,7 +17,7 @@ module.exports = function (app) {
 				res.send(Aresult(err));
 			}
 			if(result.length >= 1){
-				res.send(Aresult('success', true));
+				res.send(Aresult('success', true, result));
 			}else{
 				res.send(Aresult('用户名或密码错误'))
 			}

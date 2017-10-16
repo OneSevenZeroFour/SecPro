@@ -10,6 +10,7 @@ import vLogin from '../components/login/login.vue';
 import vRegister from '../components/register/register.vue';
 import vSoftware from '../components/Software/software.vue';
 import vGame from '../components/Game/game.vue';
+import vPersonMsg from '../components/personmsg/personMsg.vue';
 
 const routes = [{
 	path: '/header',
@@ -35,17 +36,25 @@ const routes = [{
 	path: '/software',
 	name: 'software',
 	component: vSoftware
-},{
-	path:'/game',
-	name:'game',
-	component:vGame
+}, {
+	path: '/game',
+	name: 'game',
+	component: vGame
+}, {
+	path: '/personMsg',
+	name: 'personMsg',
+	component: vPersonMsg,
 }];
 
+
 const router = new VueRouter({
-	routes
+	routes,
 })
 
 router.beforeEach((to, from, next) => {
+	//console.log('to', to)
+	//console.log('from', to);
+	console.log(document.documentElement.scrollTop)
 	next()
 })
 

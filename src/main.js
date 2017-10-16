@@ -7,6 +7,7 @@ import router from './router';
 import store from './store';
 
 import './assets/css/common.css';
+import './assets/font/iconfont.css';
 
 Vue.use(VueAxios, axios)
 Vue.use(ElementUI);

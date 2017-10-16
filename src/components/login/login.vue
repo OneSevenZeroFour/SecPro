@@ -17,6 +17,7 @@
 	</div>
 </template>
 <script>
+	import {cookie} from '../../util/cookie';
 
 	export default {
 		data() {
@@ -70,6 +71,11 @@
 						message: '登录成功',
 						type: 'success'
 					});
+					//console.log(val.data)
+					// cookie.set({
+					// 	name: 'username',
+					// 	val: val.data[0].nickname || val.data[0].elephone,
+					// })
 				} else {
 					this.$message({
 						message: val.msg,
