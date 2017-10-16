@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		ul,
+	li,
+	html,
+	body,
+	h4,
+	h5,
+	h6 {
+		margin: 0;
+		padding: 0;
+		font-weight: normal;
+	}
+	li {
+		list-style: none;
+	}
+	/*软件使用量信息*/
+	body{
+		width: 125%;
+		
+	}
+	h6{
+		font-size: 1.2rem;
+		color:#b4b4b4;
+		text-align: center;
+		
+	}
+	/*软件名称*/
+	h5{
+		font-size: 1.4rem;
+		color:#000;
+		text-align: center;
+	}
+	/*每个主题标题*/
+	h4{
+		font-size: 1.6rem;
+		color:#000;
+		padding:1rem;
+	}
+		html{
+			font-size: 20px;
+			}
+			a {
+		text-decoration: none;
+	}
+		.soft_small_img {
+			width:7rem;
+			height:7rem;
+			margin:1rem auto;
+		}
+		.soft_small_img img{
+			width:7rem;
+			height:7rem;
+			border:0;
+		}
+		/*每一个软件信息盒子*/
+		.we_use{
+			overflow:hidden;
+			}
+		.we_use li{
+			padding:1rem;
+			width:20%;
+			float:left;
+			
+		}
+		.download_bottom{
+			margin:1.5rem 0;
+			text-align:center;
+		}
+			
+	
+		.download_bottom a{
+			color:#20A0FF;
+			width:3rem;
+			text-align: center;
+			padding: .7rem 2rem;
+			border-radius: 1rem;
+			border:1px solid #20A0FF;
+		}
+		/*下面横排版的软件列表，可写为公共模板*/
+		.software_recommend{
+			width: 100%;
+		}
+		.heng_li{
+			display: flex;
+		}
+		.heng_li a{
+			display:inline-block;
+			flex:4;
+			display:flex;
+		}
+		.heng_li .soft_small_img {
+			display:inline-block;
+			text-align: center;
+			flex:2;
+		}	
+		.heng_li .soft_info {
+			margin:20px;
+			flex:3;
+			
+		}
+		.soft_info h5,.soft_info h6{
+			text-align: left;
+		}
+		.heng_li .download_btn_right{
+			flex:1;
+			
+		}	
+		
+	</style>
+	<body>
+		<div class="software_recommend">
+			<a><img src="../../assets/images/software1.jpg" alt="" /></a>
+			<!--我们都在用-->
+			<ul class="we_use">
+				<h4>{{cont.title}}</h4>
+				<li v-for="n in ">
+					<a href="">
+						<div class="soft_small_img soft_img">
+							<img src="../../assets/images/roteone1.png" alt="" />
+						</div>
+						<h5>{{今日头条}}</h5>
+						<h6>3.14亿人在用</h6>
+					</a>
+
+					<!--下载按钮-->
+					<div class="download_bottom">
+						<a href="">
+							<el-button>下载</el-button>
+						</a>
+					</div>
+
+				</li>
+			</ul>
+			<!--轮播图（暂时不做）+小列表-->
+			<div class="allwarelist">
+				<div class="soteList1" v-for="n in cont">
+					<h4>{{n.title}}</h4>
+					<ul>
+						<li v-for="n in cont.listData" class="heng_li">
+							<a href="">
+								<div class="soft_small_img">
+									<img src="../../assets/images/roteone1.png" alt="" />
+								</div>
+								<div class="soft_info">
+									<h5>{{今日头条}}</h5>
+									<h6>3.14亿人在用</h6>
+									<h6>超过4亿用户的新闻客户端</h6>
+								</div>
+							</a>
+							<div class="download_bottom download_btn_right">
+						<a href="">
+							<el-button>下载</el-button>
+						</a>
+					</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
