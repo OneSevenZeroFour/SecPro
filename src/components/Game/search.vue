@@ -46,5 +46,7 @@ export default {
     .game{
         color:red;
     }
-
+    #searchCancel{
+        color:#20a0ff
+    }
 </style>

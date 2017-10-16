@@ -16,7 +16,7 @@ import vRecommend from '../components/Software/recommend.vue';
 import vSoftwaresList from '../components/Software/softwarelist.vue'
 import vList from '../components/Software/list.vue'
 
-//import vGame from '../components/Game/game.vue';
+import vGame from '../components/Game/game.vue';
 
 
 const routes = [{
