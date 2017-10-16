@@ -58,4 +58,4 @@ server.listen(8080, function () {
 
 
 // 连接数据库
-//var router = require('./erp/router')(app);
+var router = require('./erp/router')(app);

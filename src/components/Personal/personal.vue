@@ -30,7 +30,6 @@
 	export default {
 		data() {
 			return {
-				personalImg: baseUrl + '/src/assets/img/touxiang.jpg',
 				sideArr: [{
 					name: '我的收藏',
 					icon: 'icon-shoucang',
@@ -56,12 +55,16 @@
 		},
 		computed: {
 			loginTick() {
-				return this.$store.state.username || '请先登录';
+				return cookie.get('username') || '请先登录';
+			},
+			personalImg(){
+				//console.log(cookie.get('userImg'))
+				return cookie.get('userImg');
 			}
 		},
 		methods: {
 			login() {
-				if(!this.$store.state.username){
+				if(!cookie.get('userId')){
 					this.$router.push({name:'login'});
 				}else{
 					this.$router.push({name:'personMsg'})
