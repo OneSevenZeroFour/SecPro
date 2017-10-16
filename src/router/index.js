@@ -10,6 +10,9 @@ import vRegister from '../components/register/register.vue';
 import vSoftware from '../components/Software/software.vue';
 import vGame from '../components/Game/game.vue';
 import vPersonMsg from '../components/personmsg/personMsg.vue';
+
+
+
 import vSote from '../components/Software/sote.vue';
 import vRanking from '../components/Software/ranking.vue';
 import vRecommend from '../components/Software/recommend.vue';
@@ -17,7 +20,7 @@ import vSoftwaresList from '../components/Software/softwarelist.vue'
 import vList from '../components/Software/list.vue'
 import vDetails from '../components/Software/details.vue'
 
-import vGame from '../components/Game/game.vue';
+//import vGame from '../components/Game/game.vue';
 
 
 const routes = [{
@@ -60,7 +63,7 @@ const routes = [{
 }, {
 	path: '/game',
 	name: 'game',
-	component: vGame
+//	component: vGame
 }, {
 	path: '/personMsg',
 	name: 'personMsg',

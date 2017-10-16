@@ -6,13 +6,11 @@
 		<div class="warp">
 		<ul class="we_use">
 			<!--v-for="(n,index) in firstlistData.listData" :key="index" v-if="irstlistData.listData"-->
-<<<<<<< HEAD
+
 			<li v-for="(n,index) in firstlistData.listData" :key="index">
 				<router-link class="totala" :to="'/details/'+n.title" >
-=======
-			<li>
-				<a class="totala" href="">
->>>>>>> 9297db5d59a48e013666b0109ddddb7b4dcd5c7c
+
+			
 					<div class="soft_small_img">
 						<img :src="n.avatarUrl" alt="" />
 					</div>
@@ -21,14 +19,8 @@
 				</router-link>
 				<!--下载按钮-->
 				<div class="download_bottom">
-<<<<<<< HEAD
 						<a :href="n.fileOptions[0].url" download="n.com.yeezsoftky.tradermobile.qh">
 							下载</a>
-=======
-
-					<a href="">下载</a>
-
->>>>>>> 9297db5d59a48e013666b0109ddddb7b4dcd5c7c
 				</div>
 
 			</li>
@@ -53,15 +45,11 @@
 							</router-link>
 		
 						<div class="download_bottom download_right">
-<<<<<<< HEAD
+
 							
 								<a :href="t.fileOptions[0].url" download="t.com.yeezsoftky.tradermobile.qh">下载</a>
 							
-=======
 
-							<a href="">下载</a>
-
->>>>>>> 9297db5d59a48e013666b0109ddddb7b4dcd5c7c
 						</div>
 					</li>
 				</ul>
@@ -114,25 +102,17 @@
 				console.log(this.firstlistData.listData);
 			},
 			getSoteDate(rote, index) {
-<<<<<<< HEAD
+
 				var self = this
 				var rote = encodeURI(rote)
 				var urlStr = "http://120.76.205.241:8000/mobileapp/mobile360?sort=0&catid=" + rote + "&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo";
-=======
 
-
-				let self = this;
-				var rote = encodeURI(rote)
-				var urlStr = "http://120.76.205.241:8000/mobileapp/mobile360?sort=1&catid=" + rote + "&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo";
-
->>>>>>> 9297db5d59a48e013666b0109ddddb7b4dcd5c7c
 				this.axios.get('http://127.0.0.1:8080/agency', {
 					params: {
 						url: urlStr
 					}
 				}).then(function(response) {
 					console.log(response.data, index);
-<<<<<<< HEAD
 					if(index == 0) {
 //						console.log(self)
 						var data = response.data.data;
@@ -145,17 +125,7 @@
 						var data=response.data.data
 						 self.cont[index].listData =data.splice(0,4);
 						console.log(self.cont[index].listData)
-=======
-					if (index == 0) {
-						data = response.data.data;
-						self.firstlistData.listData = data.splice(0, 4);
-					}
-					//由于线束每次只能获取一个数据
-					else {
-						var data = response.data.data
-						return self.cont[index].listData = data.splice(0, 4);
 
->>>>>>> 9297db5d59a48e013666b0109ddddb7b4dcd5c7c
 					}
 
 				}).catch(function(response) {
@@ -163,7 +133,7 @@
 				});
 			}
 		},
-<<<<<<< HEAD
+
 		mounted() {
 //			console.log(2)
 			var self=this;
@@ -180,13 +150,6 @@
 			setTimeout(function() {
 				self.getSoteDate("音乐", 4)
 			}, 4000)
-=======
-		ready() {
-
-		},
-		mounted() {
->>>>>>> 9297db5d59a48e013666b0109ddddb7b4dcd5c7c
-			
 		}
 	}
 </script>
@@ -310,133 +273,5 @@ body{
 			flex:1;
 			
 		}	
-=======
-body {
-	/*width: 125%;*/
-}
 
-h6 {
-	font-size: 1rem;
-	color: #b4b4b4;
-	text-align: center;
-}
-
-
-
-
-/*软件名称*/
-
-h5 {
-	font-size: 1.2rem;
-	color: #000;
-	text-align: center;
-}
-
-
-
-
-/*每个主题标题*/
-
-h4 {
-	font-size: 1.4rem;
-	color: #000;
-	padding: 1rem;
-}
-
-a {
-	text-decoration: none;
-	display: inline-block;
-}
-
-.topimg {
-	width: 100%;
-}
-
-.soft_small_img {
-	width: 7rem;
-	height: 7rem;
-	margin: 1rem auto;
-}
-
-.soft_small_img img {
-	width: 7rem;
-	height: 7rem;
-	border: 0;
-}
-
-
-
-
-/*每一个软件信息盒子*/
-
-.we_use {
-	overflow: hidden;
-}
-
-.we_use li {
-	padding: 1rem;
-	width: 20%;
-	float: left;
-}
-
-.download_bottom {
-	margin-top: 1rem;
-	text-align: center;
-	border: none;
-}
-
-
-.download_bottom a {
-	color: #20A0FF;
-	width: 2.5rem;
-	text-align: center;
-	padding: .5rem 1rem;
-	border-radius: 1rem;
-	border: 1px solid #20A0FF;
-}
-
-
-
-
-/*下面横排版的软件列表，可写为公共模板*/
-
-.software_recommend {
-	width: 100%;
-}
-
-.heng_li {
-
-
-	display: flex;
-}
-
-.heng_li a {
-	display: inline-block;
-	flex: 4;
-	display: flex;
-}
-
-.heng_li .soft_small_img {
-	display: inline-block;
-	text-align: center;
-
-
-	margin: 0 1rem 0 0;
-	/*flex:1;*/
-}
-
-.heng_li .soft_info {
-	margin: 20px;
-	flex: 3;
-}
-
-.heng_li h5,
-.heng_li h6 {
-	text-align: left;
-}
-
-.heng_li .download_right {
-	flex: 1;
-}
->>>>>>> 9297db5d59a48e013666b0109ddddb7b4dcd5c7c
 </style>
