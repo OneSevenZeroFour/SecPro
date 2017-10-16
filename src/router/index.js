@@ -3,13 +3,10 @@ import Vue from 'vue';
 
 Vue.use(VueRouter);
 
-import vHeader from '../components/header/header.vue';
-import vFooter from '../components/footer/footer.vue';
+
 import vPersonal from '../components/Personal/personal.vue';
 import vLogin from '../components/login/login.vue';
 import vRegister from '../components/register/register.vue';
-
-
 import vSoftware from '../components/Software/software.vue';
 import vGame from '../components/Game/game.vue';
 import vPersonMsg from '../components/personmsg/personMsg.vue';
@@ -23,14 +20,6 @@ import vList from '../components/Software/list.vue'
 
 
 const routes = [{
-	path: '/header',
-	name: 'header',
-	component: vHeader
-}, {
-	path: '/footer/:id',
-	name: 'footer',
-	component: vFooter
-}, {
 	path: '/personal',
 	name: 'personal',
 	component: vPersonal
