@@ -1,4 +1,3 @@
-var detail = require('./detail');
 var personal = require('./personal/personal');
 var login = require('./login/login');
 var register = require('./register/register');
@@ -12,7 +11,6 @@ module.exports = function (app) {
 		} else {
 			next();
 		}
-		detail(app);
 		personal(app);
 		login(app);
 		register(app);

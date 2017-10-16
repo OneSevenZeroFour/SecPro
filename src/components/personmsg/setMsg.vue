@@ -1,11 +1,11 @@
 <template>
 	<div class="setMsg" v-loading.body="loading">
 		<div class="sm-header">
+			<i class="el-icon-arrow-left" @click="backTo"></i>
 			<p>{{headerTitle}}</p>
 		</div>
 		<div>
 			<component :placeMsg="placeMsg" :type="type" :is="changeTemp" @setmsg="vSetMsg"></component>
-
 		</div>
 	</div>
 </template>
@@ -35,6 +35,9 @@
 			vSetMsg(data) {
 				//console.log(data)
 				this.$store.dispatch('personMsg/update', data);
+			},
+			backTo(){
+				this.$router.go(-1);
 			}
 		},
 		watch:{
@@ -194,15 +197,17 @@
 				template: `
 				<div class="tempLink">
 					<div class="">
-						<input type="radio" v-model="radio1" value="男"/>男
-						<input type="radio" v-model="radio1" value="女"/>女
+						<input type="radio" v-model="aaa" value="男"/>男
+						<input type="radio" v-model="aaa" value="女"/>女
+						
 					</div>
 					<el-button type="primary" class="update_btn" @click="updated">提交</el-button>
 				</div>
 				`,
 				data() {
 					return {
-						radio1: '男'
+						
+						aaa: '男'
 					}
 				},
 				props: ['placeMsg', 'type'],
@@ -322,6 +327,13 @@
 	padding: 10px 0;
 	text-align: center;
 	margin-bottom: 25px;
+	position: relative;
+	border-bottom: 1px solid #ccc;
+	i{
+		position: absolute;
+		left: 10px;
+		top: 15px;
+	}
 }
 
 .tempLink {

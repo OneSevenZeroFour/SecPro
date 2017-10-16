@@ -34,7 +34,8 @@
 	export default {
 		computed: {
 			personImg(){
-				return cookie.get('userImg');
+				let avatar = this.$store.state.personMsg.data.avatar;
+				return avatar && `${baseUrl}/src/assets/img/${avatar}`;
 			},
 			listArr() {
 

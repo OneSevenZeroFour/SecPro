@@ -10,7 +10,7 @@ import vRegister from '../components/register/register.vue';
 import vSoftware from '../components/Software/software.vue';
 import vGame from '../components/Game/game.vue';
 import vPersonMsg from '../components/personmsg/personMsg.vue';
-
+import vCollection from '../components/collection/collection.vue';
 
 
 import vSote from '../components/Software/sote.vue';
@@ -73,6 +73,10 @@ const routes = [{
 	path: '/setMsg/:index',
 	name: 'setMsg',
 	component: vSetMsg
+},{
+	path: '/collection',
+	name: 'collection',
+	component: vCollection
 }];
 
 
@@ -81,8 +85,10 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-	console.log(document.body.scrollTop)
-	next()
+	//console.log(document.body.scrollTop)
+	//console.log(to,from)
+	from.meta.scrollLen = document.body.scrollTop;
+	next();
 })
 
 export default router;
