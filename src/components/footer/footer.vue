@@ -27,7 +27,7 @@ export default {
 			},{
 				id:3,
 				title:'个人中心',
-				url:'http://127.0.0.1:8080/#/recommend'
+				url:'http://127.0.0.1:8080/#/personMsg'
 			},],
 			xid:0
 		}

@@ -56,7 +56,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.list_title a{
 		display:inline-block;
 		font-size:1.8rem;
