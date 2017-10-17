@@ -106,8 +106,9 @@
 			}
 		},
 		mounted() {
-			console.log(6666)
-			console.log(this.$route.params.name);
+			console.log(this.$route)
+//			console.log(6666)
+//			console.log(this.$route.params.name);
 			var self = this
 			var softwareName = this.$route.params.name
 			var keyname = encodeURI(softwareName)
