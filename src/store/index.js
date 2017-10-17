@@ -10,8 +10,6 @@ import personMsg from '../components/personmsg/personMsg';
 export default new Vuex.Store({
 	state: {
 		dialog: false,
-		username:'',
-		userImg: ''
 	},
 	modules: {
 		login,

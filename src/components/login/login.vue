@@ -17,7 +17,8 @@
 	</div>
 </template>
 <script>
-	import {cookie} from '../../util/cookie';
+	import { cookie } from '../../util/cookie';
+	import {baseUrl} from '../../util/baseUrl';
 
 	export default {
 		data() {
@@ -66,22 +67,30 @@
 		},
 		watch: {
 			msg(val, oldVal) {
+				//console.log(val, baseUrl)
 				if (val.status) {
+					
 					this.$message({
 						message: '登录成功',
 						type: 'success'
 					});
-					//console.log(val.data)
-					// cookie.set({
-					// 	name: 'username',
-					// 	val: val.data[0].nickname || val.data[0].elephone,
-					// })
+					cookie.set({
+						name: 'username',
+						val: val.data[0].nickname || val.data[0].elephone
+					})
+					cookie.set({
+						name: 'userImg',
+						val: `${baseUrl}/src/assets/img/${val.data[0].avatar}` || baseUrl + '/src/assets/img/touxiang.jpg'
+					})
+					cookie.set({
+						name: 'userId',
+						val: val.data[0].id
+					})
 				} else {
 					this.$message({
 						message: val.msg,
 						type: 'error'
 					})
-					//console.log(val)
 				}
 			}
 		}

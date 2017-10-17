@@ -6,16 +6,13 @@
 		<div class="warp">
 		<ul class="we_use">
 			<!--v-for="(n,index) in firstlistData.listData" :key="index" v-if="irstlistData.listData"-->
-
 			<li v-for="(n,index) in firstlistData.listData" :key="index">
 				<router-link class="totala" :to="'/details/'+n.title" >
-
-			
 					<div class="soft_small_img">
 						<img :src="n.avatarUrl" alt="" />
 					</div>
 					<h5>{{n.title}}</h5>
-					<h6>3.14亿人在用</h6>
+					<h6>{{n.downloadCount}}人已下载</h6>
 				</router-link>
 				<!--下载按钮-->
 				<div class="download_bottom">
@@ -39,7 +36,7 @@
 							</div>
 							<div>
 								<h5>{{t.tilte}}</h5>
-								<h6>3.14亿人在用</h6>
+								<h6>{{t.downloadCount}}人已下载</h6>
 								<h6>超过4亿用户的新闻客户端</h6>
 							</div>
 							</router-link>
@@ -102,7 +99,6 @@
 				console.log(this.firstlistData.listData);
 			},
 			getSoteDate(rote, index) {
-
 				var self = this
 				var rote = encodeURI(rote)
 				var urlStr = "http://120.76.205.241:8000/mobileapp/mobile360?sort=0&catid=" + rote + "&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo";
@@ -155,7 +151,7 @@
 </script>
 
 <style>
-<<<<<<< HEAD
+
 body{
 		/*width: 125%;*/
 		
@@ -164,7 +160,6 @@ body{
 		font-size: 1rem;
 		color:#b4b4b4;
 		text-align: center;
-		
 	}
 	/*软件名称*/
 	h5{
@@ -190,6 +185,8 @@ body{
 			width:5rem;
 			height:5rem;
 			margin:1rem auto;
+			border-radius: 1rem;
+			overflow: hidden;
 		}
 		.soft_small_img img{
 			width:5rem;
@@ -207,9 +204,9 @@ body{
 			
 		    overflow: hidden;
 		    overflow-x: scroll;
-		    /*overflow-y: hidden;*/
+		    overflow-y: hidden;
 		    white-space: nowrap;
-		    /*-webkit-overflow-scrolling: touch;*/
+		    -webkit-overflow-scrolling: touch;
 			    display: flex;
     justify-content: space-between;
     flex-flow: row nowrap;
@@ -255,9 +252,9 @@ body{
 		.heng_li .soft_small_img {
 			display:inline-block;
 			text-align: center;
-		
+			margin-bottom:;
 			
-			margin:0 1rem 0 0;
+			margin:0 1rem 1rem 0;
 			/*flex:1;*/
 		}	
 		.heng_li .soft_info {
