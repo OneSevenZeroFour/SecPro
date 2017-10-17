@@ -29,12 +29,21 @@ export default {
 				title:'个人中心',
 				url:'http://127.0.0.1:8080/#/personMsg'
 			},],
-			xid:0
+			xid:null
 		}
 	},
 	methods:{
 		cf(id){
 			this.xid = id;
+		}
+	},
+	mounted(){
+		switch(window.location.href){
+			case this.arr[0].url:this.xid = 0; break;
+			case this.arr[1].url:this.xid = 1; break;
+			case this.arr[2].url:this.xid = 2; break;
+			case this.arr[3].url:this.xid = 3; break;
+			default:this.xid = 0; break;
 		}
 	}
 }
