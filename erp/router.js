@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 var detail = require('./detail');
 //var personal = require('./personal/personal');
+=======
+// var detail = require('./detail');
+// var personal = require('./personal/personal');
+// var login = require('./login/login');
+>>>>>>> b73e0f96bdf069880ecd732b63fc14efa2755d10
 
 module.exports = function(app){
 	app.all("*", function(req, res, next){
@@ -11,7 +17,8 @@ module.exports = function(app){
             next();
 		}
 		
-		detail(app);
-		personal(app);
+		// detail(app);
+		// personal(app);
+		// login(app);
 	})
 }

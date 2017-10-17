@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const publicPath = 'http://localhost:3000/';
+const publicPath = 'http://localhost:8080/';
 const middleClient = 'webpack-hot-middleware/client?reload=true&path=/__webpack_hmr&timeout=20000';
 
 module.exports = {
@@ -38,7 +38,7 @@ module.exports = {
 				exclude: /node_modules/
 			},
 			{
-				test: /\.(jpeg|png|gif|svg)$/,
+				test: /\.(jpeg|png|gif|jpg)$/,
 				use: [{
 					loader: 'url-loader',
 					options: {
