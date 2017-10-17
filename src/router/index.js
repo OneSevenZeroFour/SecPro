@@ -87,11 +87,15 @@ const routes = [{
 	path: '/collection',
 	name: 'collection',
 	component: vCollection
+},{
+	path: '/',
+	redirect: '/recommend'
 }];
 
 
 const router = new VueRouter({
 	routes,
+//	mode: 'history'
 })
 
 router.beforeEach((to, from, next) => {

@@ -2,8 +2,8 @@
 	<div class="footer">
 		<div class="lu" v-for="(i,index) in arr" @click="cf(index)" :class="{'cb':index==xid}">
 			<a :href="i.url">
-				<span :class="{'bh':index==xid}"></span>
-				<p>{{i.title}}</p>				
+				<!--<span :class="{'bh':index==xid}"></span>-->
+				<p :class="{'ys':index==xid}">{{i.title}}</p>				
 			</a>
 		</div>
 	</div>
@@ -46,6 +46,7 @@ export default {
 	.lu a{text-decoration: none; color: black;}
 	.lu span{width: 100%;border: 1px solid white;display: block;}
 	.lu .bh{border: 1px solid orangered;}
-	.cb{background: yellowgreen;}
+	.cb{background: #20a0ff;}
+	.ys{color: white;}
 	.lu p{font-size: 16px; text-align: center;line-height: 43px;}
 </style>

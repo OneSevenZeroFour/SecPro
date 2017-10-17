@@ -1,10 +1,14 @@
 <template>
 	<div id="software_page">
+		<div class="software_header">
+			
+		
 		<el-tabs v-model="Value" @tab-click="clickTab">
 			<el-tab-pane v-for="(item, index) in softwareHeader" :key="item.name" :label="item.title" :name="item.name">
 				
 			</el-tab-pane>
 		</el-tabs>
+		</div>
 		<router-view></router-view>
 	</div>
 </template>
@@ -60,6 +64,7 @@
 	}
 </script>
 <style type="text/css" scoped>
+
 	.software_header {
 		width: 180px;
 		margin: auto;
@@ -71,6 +76,7 @@
 	}
 	
 	.el-tabs__nav {
+		
 		top:0;
 		left:50%;
 		transform:translateX(-50%) ;

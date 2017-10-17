@@ -1,9 +1,11 @@
 <template>
 	<div id="app">
 		<xheader></xheader>
+		<div style="width: 100%; height: 45px;"></div>
 		<transition :name="transitionName" mode="out-in">
 			<router-view></router-view>
 		</transition>
+		<div style="width: 100%; height: 45px;"></div>
 		<xfooter></xfooter>
 	</div>
 </template>
