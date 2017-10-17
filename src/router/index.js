@@ -87,6 +87,9 @@ const routes = [{
 	path: '/collection',
 	name: 'collection',
 	component: vCollection
+},{
+	path: '/',
+	redirect: '/recommend'
 }];
 
 
