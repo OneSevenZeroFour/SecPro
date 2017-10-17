@@ -8,7 +8,7 @@
         <div class="page" v-if="page1">
             <div class="weui-panel weui-panel_access">
                 <div class="weui-panel__bd" v-for="a in tuijian">
-                    <a href="javascript:void(0);"  class="weui-media-box weui-media-box_appmsg">
+                    <a :href="'/#/details/'+a.title"  class="weui-media-box weui-media-box_appmsg">
                         <div class="weui-media-box__hd">
                             <img class="weui-media-box__thumb" :src="a.avatarUrl" alt="">
                         </div>
@@ -32,7 +32,7 @@
         <div class="page" v-if="page2">
             <div class="weui-panel weui-panel_access">
                 <div class="weui-panel__bd" v-for="b in zuixin">
-                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <a :href="'/#/details/'+a.title" class="weui-media-box weui-media-box_appmsg">
                         <div class="weui-media-box__hd">
                             <img class="weui-media-box__thumb" :src="b.avatarUrl" alt="">
                         </div>

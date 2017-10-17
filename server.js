@@ -30,6 +30,7 @@ app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/index.html');
 })
 
+
 //服务器代理
 app.get('/agency', function (req, res) {
 	res.append('Access-Control-Allow-Origin', '*');
@@ -46,9 +47,6 @@ app.get('/agency', function (req, res) {
 		})
 	});
 })
-
-
-
 
 var server = http.createServer(app);
 
