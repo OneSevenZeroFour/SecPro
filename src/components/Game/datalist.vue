@@ -1,13 +1,9 @@
 <template>
     <div>
-        <shuju></shuju>
+        详情页
     </div>
 </template>
-
 <script>
-import WeUI from 'weui';
-import search from './search.vue';
-import shuju from './shuju.vue';
 export default {
     data(){
         return {
@@ -15,8 +11,7 @@ export default {
         }
     },
     components:{
-        search:search,
-        shuju:shuju
+        
     }
 
 }

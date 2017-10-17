@@ -67,7 +67,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 		h6{
 		font-size: 1rem;
 		color:#b4b4b4;
