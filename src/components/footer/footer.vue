@@ -19,11 +19,11 @@ export default {
 			},{
 				id:1,
 				title:'软件',
-				url:'http://127.0.0.1:8080/#/recommend'
+				url:'http://127.0.0.1:8080/#/software/recommend'
 			},{
 				id:2,
 				title:'游戏',
-				url:'http://127.0.0.1:8080/#/recommend'
+				url:'http://127.0.0.1:8080/#/game'
 			},{
 				id:3,
 				title:'个人中心',

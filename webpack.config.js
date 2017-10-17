@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const publicPath = 'http://localhost:8080/';
-const middleClient = 'webpack-hot-middleware/client?reload=true&path=/__webpack_hmr&timeout=20000';
+const middleClient = 'webpack-hot-middleware/client?reload=true&timeout=20000';
 
 module.exports = {
 	entry: [
@@ -112,3 +112,5 @@ if (process.env.NODE_ENV === 'production') {
 		})
 	])
 }
+
+

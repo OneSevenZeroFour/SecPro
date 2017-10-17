@@ -1,8 +1,5 @@
 import Vue from 'vue';
-import {
-	baseUrl
-} from '../../util/baseUrl';
-//import merge from 'merge';
+import {baseUrl} from '../../util/baseUrl';
 
 const state = {
 	data: {}
@@ -29,8 +26,9 @@ const actions = {
 			})
 			.then(response => {
 				rootState.dialog = false;
-				console.log(response)
+				
 				state.data = response.data;
+
 			})
 	}
 }

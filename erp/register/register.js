@@ -1,27 +1,27 @@
 var connection = require('../sql/sqlConnect')();
 var Aresult = require('../base/base');
+var insert = require('../sql/insertSql');
 
 module.exports = function (app) {
-	app.post('/login', function (req, res) {
-		//console.log(req.body)
+	app.post('/register', function (req, res) {
 		var data = req.body.data;
-		var sql = `select * from customer where `
-		for(var item in data){
-			sql += `${item}='${data[item]}' and `
-		}
-		sql = sql.slice(0, sql.length-5);
-		sql += `;`;
-		//res.send(Aresult(sql))
+		var sql = `select * from customer where `;
+		sql += `elephone=${data.elephone};`;
 		connection.query(sql, function (err, result, feild) {
 			if(err){
 				res.send(Aresult(err));
 			}
 			if(result.length >= 1){
-				res.send(Aresult('success', true));
+				res.send(Aresult('该手机号已被注册'));
 			}else{
-				res.send(Aresult('用户名或密码错误'))
+				insert({
+					sqlname: 'customer',
+					data,
+					callback: function (result) {
+						res.send(result);
+					}
+				})
 			}
-			
 		})
 	})
 }

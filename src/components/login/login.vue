@@ -1,7 +1,7 @@
 <template>
 	<div class="login">
-		<div>
-			<router-link to="/register">快速注册</router-link>
+		<div class="linkTo">
+			<router-link :to="{name:'register'}">快速注册</router-link>
 		</div>
 		<div class="l-pic">
 			<div class="pic-box">
@@ -13,10 +13,12 @@
 			<el-input class="l-input" type="password" v-model="password" placeholder="请输入密码"></el-input>
 			<el-button type="primary" @click="login" class="l-btn">登录</el-button>
 		</div>
-		
+
 	</div>
 </template>
 <script>
+	import { cookie } from '../../util/cookie';
+	import {baseUrl} from '../../util/baseUrl';
 
 	export default {
 		data() {
@@ -38,52 +40,57 @@
 				var eleReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
 				var emailReg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 				var obj = {};
-				if(eleReg.test(this.username)){
+				if (eleReg.test(this.username)) {
 					obj.elephone = this.username;
 
-				}else if(emailReg.test(this.username)){
+				} else if (emailReg.test(this.username)) {
 					obj.email = this.username;
 
-				}else{
+				} else {
 					this.$message({
 						type: 'warning',
 						message: '你输入的用户名不正确'
 					})
-					return ;
+					return;
 				}
-				if(!this.password){
+				if (!this.password) {
 					this.$message({
 						type: 'warning',
 						message: '密码不能为空'
 					})
-					return ;
+					return;
 				}
 				obj.password = this.password;
 
-				this.$store.dispatch('login/login',obj);
+				this.$store.dispatch('login/login', obj);
 			}
 		},
 		watch: {
 			msg(val, oldVal) {
+				//console.log(val, baseUrl)
 				if (val.status) {
+					
 					this.$message({
 						message: '登录成功',
 						type: 'success'
 					});
-				}else{
+					cookie.set({
+						name: 'username',
+						val: val.data[0].nickname || val.data[0].elephone
+					})
+					cookie.set({
+						name: 'userImg',
+						val: `${baseUrl}/src/assets/img/${val.data[0].avatar}` || baseUrl + '/src/assets/img/touxiang.jpg'
+					})
+					cookie.set({
+						name: 'userId',
+						val: val.data[0].id
+					})
+				} else {
 					this.$message({
 						message: val.msg,
 						type: 'error'
 					})
-					//console.log(val)
-				}
-			}
-		},
-		directives: {
-			dialog: {
-				inserted: function(el) {
-					// 聚焦元素
-					el.focus()
 				}
 			}
 		}
@@ -94,11 +101,19 @@
 .login {
 	width: 100%;
 	height: 100%;
-	background: url('')
+}
+
+.linkTo {
+	padding: 20px 40px 0 0;
+	font-size: 16px;
+	a {
+		color: #20a0ff;
+		float: right;
+	}
 }
 
 .l-pic {
-	padding-top: 100px;
+	padding-top: 70px;
 	text-align: center;
 	.pic-box {
 		display: inline-block;

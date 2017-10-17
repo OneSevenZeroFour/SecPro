@@ -1,74 +1,144 @@
 <template>
-	<div>
-		<div class="header">
-			<el-upload class="avatar-uploader" 
-			action="http://localhost:3000/fileupload" 
-			:show-file-list="false" 
-			:on-success="handleAvatarSuccess" 
-			:before-upload="beforeAvatarUpload"
-			:multiple="false"
-			:name="'touxiang'"
-			>
-				<img v-if="imageUrl" :src="imageUrl" class="avatar">
-				<i v-else class="el-icon-plus avatar-uploader-icon"></i>
-			</el-upload>
+	<div class="sideBar">
+		<div class="side">
+			<div class="side-header">
+				<div class="side-header-bor">
+					<div class="side-h-img" @click="login">
+						<img :src="personalImg" alt="">
+					</div>
+					<div class="side-h-title">{{loginTick}}</div>
+				</div>
+			</div>
+			<div class="side-nav">
+				<ul>
+					<li v-for="(item, index) in sideArr" :index="index">
+						<router-link :to="item.link">
+							<i :class="'iconfont ' + item.icon "></i>
+							<span class="side-nav-item-title">{{item.name}}</span>
+						</router-link>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+	import { baseUrl } from '../../util/baseUrl';
+	import { cookie } from '../../util/cookie';
+
 	export default {
 		data() {
 			return {
-				imageUrl: ''
-			};
+				sideArr: [{
+					name: '我的收藏',
+					icon: 'icon-shoucang',
+					link: '#'
+				}, {
+					name: '我的游戏',
+					icon: 'icon-youxi',
+					link: '#'
+				}, {
+					name: '我的钱包',
+					icon: 'icon-iconfuzhifuzhi03',
+					link: '#'
+				}, {
+					name: '我的红包',
+					icon: 'icon-hongbao',
+					link: '#'
+				}, {
+					name: '安装历史',
+					icon: 'icon-ccgl-anzhuangfeiyong-4',
+					link: '#'
+				}]
+			}
+		},
+		computed: {
+			loginTick() {
+				return cookie.get('username') || '请先登录';
+			},
+			personalImg(){
+				//console.log(cookie.get('userImg'))
+				return cookie.get('userImg');
+			}
 		},
 		methods: {
-			handleAvatarSuccess(res, file) {
-				console.log(res, file)
-			},
-			beforeAvatarUpload(file) {
-				const isJPG = file.type === 'image/jpeg';
-				const isLt2M = file.size / 1024 / 1024 < 2;
-
-				if (!isJPG) {
-					this.$message.error('上传头像图片只能是 JPG 格式!');
+			login() {
+				if(!cookie.get('userId')){
+					this.$router.push({name:'login'});
+				}else{
+					this.$router.push({name:'personMsg'})
 				}
-				if (!isLt2M) {
-					this.$message.error('上传头像图片大小不能超过 2MB!');
-				}
-				return isJPG && isLt2M;
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-.avatar-uploader .el-upload {
-	border: 1px dashed #d9d9d9;
-	border-radius: 6px;
-	cursor: pointer;
-	position: relative;
-	overflow: hidden;
-}
-
-.avatar-uploader .el-upload:hover {
-	border-color: #20a0ff;
-}
-
-.avatar-uploader-icon {
-	font-size: 28px;
-	color: #8c939d;
-	width: 178px;
-	height: 178px;
-	line-height: 178px;
-	text-align: center;
-}
-
-.avatar {
-	width: 178px;
-	height: 178px;
-	display: block;
+.sideBar {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, .1);
+	.side {
+		width: 240px;
+		height: 100%;
+		background: #fff;
+		.side-header {
+			box-sizing: border-box;
+			height: 140px;
+			width: 100%;
+			border-bottom: 1px solid #ccc;
+			background: url('../../assets/img/beijing2.jpg') no-repeat;
+			background-position: center center;
+			.side-header-bor {
+				padding-top: 50px;
+				padding-left: 20px;
+				overflow: hidden;
+				.side-h-img {
+					float: left;
+					img {
+						width: 40px;
+						height: 40px;
+						border-radius: 50%;
+					}
+				}
+				.side-h-title {
+					float: left;
+					color: #666;
+					font-size: 18px;
+					margin-left: 10px;
+					line-height: 50px;
+				}
+			}
+			.sid-h-diy {
+				font-size: 12px;
+				line-height: 20px;
+				padding-left: 20px;
+				color: #fff;
+			}
+		}
+		.side-nav {
+			ul {
+				padding-left: 10px;
+			}
+			li {
+				padding: 10px;
+				a {
+					color: #666;
+					i {
+						font-size: 20px;
+					}
+					span {
+						font-size: 16px;
+						margin-left: 8px;
+					}
+				}
+			}
+		}
+	}
 }
 </style>
-

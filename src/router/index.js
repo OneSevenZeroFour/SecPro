@@ -3,25 +3,28 @@ import Vue from 'vue';
 
 Vue.use(VueRouter);
 
-import vHeader from '../components/header/header.vue';
-import vFooter from '../components/footer/footer.vue';
-import vPersonal from '../components/Personal/personal.vue';
-import vRecommend from '../components/recommend/recommend.vue';
-import vSoftware from '../components/Software/software.vue';
-import vLogin from '../components/login/login.vue';
-import vGame from '../components/Game/game.vue';
 
+import vPersonal from '../components/Personal/personal.vue';
+import xRecommend from '../components/recommend/recommend.vue';
+import vLogin from '../components/login/login.vue';
+
+import vRegister from '../components/register/register.vue';
+import vSoftware from '../components/Software/software.vue';
+import vGame from '../components/Game/game.vue';
+import vPersonMsg from '../components/personmsg/personMsg.vue';
+import vCollection from '../components/collection/collection.vue';
+
+
+import vSote from '../components/Software/sote.vue';
+import vRanking from '../components/Software/ranking.vue';
+import vRecommend from '../components/Software/recommend.vue';
+import vSetMsg from '../components/personmsg/setMsg.vue';
+import vSoftwaresList from '../components/Software/softwarelist.vue'
+import vList from '../components/Software/list.vue'
+import vDetails from '../components/Software/details.vue'
 
 
 const routes = [{
-	path: '/header',
-	name: 'header',
-	component: vHeader
-}, {
-	path: '/footer',
-	name: 'footer',
-	component: vFooter
-}, {
 	path: '/personal',
 	name: 'personal',
 	component: vPersonal
@@ -29,30 +32,67 @@ const routes = [{
 	path: '/login',
 	name: 'login',
 	component: vLogin
+}, {
+	path: '/register',
+	name: 'register',
+	component: vRegister
+}, {
+	path: '/software',
+	redirect: '/software/recommend',
+	name: 'software',
+	component: vSoftware,
+	children: [{
+		path: 'sote',
+		component: vSote
+	}, {
+		path: 'ranking',
+		component: vRanking
+	}, {
+		path: 'recommend',
+		component: vRecommend
+	}]
+}, {
+	path: '/softwarelist',
+	component: vSoftwaresList,
+	children: [{
+		path: ':list/:num',
+		component: vList
+	}]
 },{
 	path: '/recommend',
 	name: 'recommend',
-	component: vRecommend
+	component: xRecommend
 },{
-	path:'/game',
-	name:'game',
-	component:vGame
-// }, {
-// 	path: '/software',
-// 	name: 'software',
-// 	component: vSoftware
-//		children: [{
-//		 	path: '/:headerlist',
-//		 	component: vSoftWareHeader
-//		}]
+	path: '/details/:name',
+	component: vDetails,
+}, {
+	path: '/game',
+	name: 'game',
+	component: vGame
+}, {
+	path: '/personMsg',
+	name: 'personMsg',
+	component: vPersonMsg,
+},{
+	path: '/setMsg/:index',
+	name: 'setMsg',
+	component: vSetMsg
+},{
+	path: '/collection',
+	name: 'collection',
+	component: vCollection
 }];
 
+
 const router = new VueRouter({
-	routes
+	routes,
 })
 
 router.beforeEach((to, from, next) => {
-	next()
+	//console.log(document.body.scrollTop)
+	//console.log(to,from)
+	from.meta.scrollLen = document.body.scrollTop;
+	next();
 })
 
-export default router
+export default router;
