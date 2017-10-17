@@ -2,16 +2,18 @@
 	<div>
 		<h5>YouYou推荐</h5>
 		<div v-for="i in data" class="box">
-			<div class="left">
-				<img :src="i.avatarUrl" alt="" />
-			</div>
-			<div class='conter'>
-				<h6>{{i.title}}</h6>
-				<p><span>评论数:{{i.commentCount}}</span><span>大小:{{i.fileOptions[0].sizeM}}</span></p>
-			</div>
-			<div class='right'>
-				<a :href="i.fileOptions[0].url">下 载</a>
-			</div>
+			<a :href="'#/details/'+i.title" class="lj">
+				<div class="left">
+					<img :src="i.avatarUrl" alt="" />
+				</div>
+				<div class='conter'>
+					<h6>{{i.title}}</h6>
+					<p><span>评论数:{{i.commentCount}}</span><span>大小:{{i.fileOptions[0].sizeM}}</span></p>
+				</div>
+				<div class='right'>
+					<a :href="i.fileOptions[0].url">下 载</a>
+				</div>
+			</a>
 		</div>
 	</div>
 </template>
@@ -51,6 +53,7 @@
 
 <style scoped>
 	h5{text-align: center;line-height: 40px;font-size: 16px;}
+	.lj{color: black;}
 	.box{width: 100%-20px; padding: 10px;margin: 10px;border:1px solid #D3DCE6;overflow: hidden;}
 	.box div{float: left;}
 	.box .left{margin-right: 10px;}

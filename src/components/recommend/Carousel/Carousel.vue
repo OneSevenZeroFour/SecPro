@@ -1,7 +1,7 @@
 <template>
 	<swiper :options="swiperOption">
 		<swiper-slide v-for="slide in lbt">
-			<a :href="slide.url" class="lb">
+			<a :href="'#/details/'+slide.title" class="lb">
 		      <img :src="slide.imageUrls[0]" alt="" />
 	    	</a>
 		</swiper-slide>
