@@ -100,6 +100,7 @@
 		},
 
 		mounted() {
+			document.body.scrollTop = this.$route.meta.scrollLen;
 			//			let keyrote = this.$route.params.list;
 			//			this.rote = keyrote;
 			let page = this.page;

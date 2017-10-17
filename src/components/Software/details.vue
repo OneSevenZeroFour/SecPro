@@ -104,6 +104,7 @@
 			}
 		},
 		mounted() {
+			document.body.scrollTop = this.$route.meta.scrollLen;
 			console.log(this.$route)
 //			console.log(6666)
 //			console.log(this.$route.params.name);
