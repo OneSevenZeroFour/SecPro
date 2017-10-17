@@ -1,17 +1,21 @@
 <template>
 	<div id="app">
+		<xheader></xheader>
 		<transition :name="transitionName" mode="out-in">
 			<router-view></router-view>
 		</transition>
+		<xfooter></xfooter>
 	</div>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
+	import xheader from './components/header/header.vue';
+	import xfooter from './components/footer/footer.vue';
+	export default{
+		data(){
+			return{
 				transitionName: ''
-			}
+			}	
 		},
 		watch: {
 			$route(to, from) {
@@ -19,7 +23,11 @@
 				const fromDepth = from.path.split('/').length
 				this.transitionName = toDepth >= fromDepth ? 'slide-right' : 'slide-left'
 			}
-		}
+		},
+		components:{
+			xheader,
+			xfooter
+		},
 	}
 </script>
 
