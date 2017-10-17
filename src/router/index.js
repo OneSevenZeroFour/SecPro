@@ -20,7 +20,6 @@ import vSetMsg from '../components/personmsg/setMsg.vue';
 import vSoftwaresList from '../components/Software/softwarelist.vue'
 import vList from '../components/Software/list.vue'
 import vDetails from '../components/Software/details.vue'
-
 //import vGame from '../components/Game/game.vue';
 
 
@@ -82,7 +81,10 @@ const routes = [{
 
 const router = new VueRouter({
 	routes,
+	
 })
+
+
 
 router.beforeEach((to, from, next) => {
 	//console.log(document.body.scrollTop)
