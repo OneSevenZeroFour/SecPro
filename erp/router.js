@@ -1,4 +1,4 @@
-var detail = require('./detail');
+
 var personal = require('./personal/personal');
 var login = require('./login/login');
 var register = require('./register/register');

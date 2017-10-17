@@ -3,7 +3,7 @@ import Vue from 'vue';
 
 Vue.use(VueRouter);
 
-import vPersonal from '../components/Personal/personal.vue';
+//import vPersonal from '../components/Personal/personal.vue';
 import xRecommend from '../components/recommend/recommend.vue';
 import vLogin from '../components/login/login.vue';
 import vsearch from '../components/search/search.vue';
@@ -28,10 +28,6 @@ import vGame from '../components/Game/game.vue';
 import VGameDataList from '../components/Game/datalist.vue';
 
 const routes = [{
-	path: '/personal',
-	name: 'personal',
-	component: vPersonal
-}, {
 	path: '/login',
 	name: 'login',
 	component: vLogin

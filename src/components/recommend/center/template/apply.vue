@@ -1,7 +1,7 @@
 <template>
 	<swiper :options='swiperOption'>
-		<swiper-slide v-for="slide in swiperSlides" class='box'>
-			<div v-for="i in xm1" v-show="slide==0">
+		<swiper-slide v-for="(slide, index) in swiperSlides" :key="index" class='box'>
+			<div v-for="(i, index) in xm1" :key="index" v-show="slide==0">
 				<div class="wbox" >
 					<a :href="'#/details/'+i.title">
 						<img :src="i.avatarUrl" alt="" />
@@ -9,7 +9,7 @@
 					</a>
 				</div>
 			</div>
-			<div v-for="i in xm2" v-show="slide==1">
+			<div v-for="(i, index) in xm2" :key="index" v-show="slide==1">
 				<div class="wbox">
 					<a :href="'#/details/'+i.title">
 						<img :src="i.avatarUrl" alt="" />
@@ -17,7 +17,7 @@
 					</a>
 				</div>
 			</div>
-			<div v-for="i in xm3" v-show="slide==2">
+			<div v-for="(i, index) in xm3" :key="index" v-show="slide==2">
 				<div class="wbox">
 					<a :href="'#/details/'+i.title">
 						<img :src="i.avatarUrl" alt="" />

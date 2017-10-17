@@ -72,6 +72,7 @@
 						message: '注册成功',
 						type: 'success'
 					});
+					this.$router.push({name:'recommend'})
 				} else {
 					this.$message({
 						message: val.msg,

@@ -11,6 +11,7 @@ export default new Vuex.Store({
 	state: {
 		dialog: false,
 		xsearch:null,
+		personal: ''
 	},
 	modules: {
 		login,

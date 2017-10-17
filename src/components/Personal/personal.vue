@@ -1,8 +1,6 @@
 <template>
 	<div>
-		<div style="font-size:20px;">
-			<el-button type="primary" @click="getLocalPosition" style="float:right">主要按钮</el-button>
-		</div>
+		
 		<div :class="'sideBar '+ classBack" @click.self="logback">
 			<div class="side">
 				<div class="side-header">
@@ -39,7 +37,7 @@
 		},
 		data() {
 			return {
-				classBack: '',
+				//classBack: '',
 				sideArr: [{
 					name: '我的收藏',
 					icon: 'icon-shoucang',
@@ -75,27 +73,36 @@
 			personalImg() {
 				let data = this.$store.state.login.data;
 				if(data.data){
-					return data.data[0].avatar || `${baseUrl}/src/assets/img/touxiang.jpg`;
+					return `${baseUrl}/src/assets/img/${data.data[0].avatar}` || `${baseUrl}/src/assets/img/touxiang.jpg`;
 				}else{
 					return `${baseUrl}/src/assets/img/touxiang.jpg`;
 				}
+			},
+			classBack(){
+				
+				return this.$store.state.personal
 			}
 		},
 		methods: {
 			login() {
 				if (!cookie.get('userId')) {
+					this.$store.state.personal = 'classBack'
 					this.$router.push({ name: 'login' });
 				} else {
+					this.$store.state.personal = 'classBack'
 					this.$router.push({ name: 'personMsg' })
 				}
 			},
 			logback() {
-				//console.log('111')
-				this.classBack = 'classBack';
+				
+				this.$store.state.personal = 'classBack'
+				console.log(this.$store.state.personal)
+				//this.classBack = 'classBack';
 			},
 			open() {
 				//console.log('122')
-				this.classBack = 'classOpen';
+				this.$store.state.personal = 'classOpen'
+				//this.classBack = 'classOpen';
 			},
 			getLocalPosition() {
 				let self = this;
@@ -153,10 +160,10 @@
 	width: 100%;
 	height: 100%;
 	position: fixed;
-	z-index: 999;
-	left: 0;
+	z-index: 10999;
+	left: -100%;
 	top: 0;
-	background: rgba(0, 0, 0, .1);
+	background: rgba(0, 0, 0, 0);
 	.side {
 		width: 240px;
 		height: 100%;
@@ -219,12 +226,12 @@
 .classBack {
 	background: rgba(0, 0, 0, 0);
 	transition: all .3s linear;
-	transform: translateX(-100%);
+	transform: translateX(0);
 }
 
 .classOpen {
-	background: rgba(0, 0, 0, .1);
+	background: rgba(0, 0, 0, 0);
 	transition: all .3s linear;
-	transform: translateX(0);
+	transform: translateX(100%);
 }
 </style>
