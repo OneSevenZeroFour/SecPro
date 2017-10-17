@@ -127,6 +127,7 @@
 		},
 
 		mounted() {
+			document.body.scrollTop = this.$route.meta.scrollLen;
 //			console.log(2)
 			var self=this;
 			self.getSoteDate("生活", 0);

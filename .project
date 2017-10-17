@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-<<<<<<< HEAD
-	<name>youyou</name>
-=======
-	<name>SecPro</name>
->>>>>>> 2e346a07b735e5bb48a704af35d967786da2b15e
+	<name>veb</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -20,11 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-<<<<<<< HEAD
-			<id>1507885758171</id>
-=======
-			<id>1507957750546</id>
->>>>>>> 2e346a07b735e5bb48a704af35d967786da2b15e
+			<id>1508234343972</id>
 			<name></name>
 			<type>26</type>
 			<matcher>

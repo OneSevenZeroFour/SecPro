@@ -1,7 +1,7 @@
 <template>
 	<div class="box">
 		<div>
-			<img class="logo" src="../../../logo.png" alt="" />
+			<img class="logo" src="../../../logo.png" alt="" @click="personal"/>
 		</div>
 		<div class="seach">
 			<input type="" name="" id="" value="" v-model="val"/>
@@ -10,6 +10,7 @@
 	</div>
 </template>
 <script>
+	import personal from '../Personal/personal.vue';
 	export default {
 		data() {
 			return {
@@ -19,7 +20,14 @@
 		computed: {
 			
 		},
+		components:{
+			//rsonal
+		},
 		methods: {
+			personal(){
+				console.log(123)
+				this.$store.state.personal = 'classOpen'
+			},
 			btn(){
 				if(this.val != ''){
 					var xthis = this

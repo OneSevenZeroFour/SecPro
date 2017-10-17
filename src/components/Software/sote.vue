@@ -59,7 +59,7 @@
 			};
 		},
 		mounted() {
-
+			document.body.scrollTop = this.$route.meta.scrollLen;
 
 
 		},

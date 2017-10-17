@@ -5,6 +5,7 @@ import {
 
 const state = {
 	data: {
+		personal: '',
 		nickname: '',
 		elephone: '',
 		gender: '',

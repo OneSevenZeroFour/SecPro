@@ -24,9 +24,9 @@
 								<p style="width:50%; height:20px; float:left;"><span>时间：2017-10-14</span></p>
 							</div><br/>
 							<div style="color:#000;width: 260px; font-size: 14px;">
-								<p style="width:40%; height:20px; float:left; margin-bottom:10px;"><span>大小：{{data.fileOptions[0].sizeM}}M</span>
+								<p style="width:40%; height:20px; float:left; margin-bottom:10px;"><span>大小：{{data && data.fileOptions[0].sizeM}}M</span>
 								</p>
-								<p style="width:60%; height:20px; float:left;"><span>版本：{{data.fileOptions[0].version}}</span></p>
+								<p style="width:60%; height:20px; float:left;"><span>版本：{{data && data.fileOptions[0].version}}</span></p>
 							</div>
 						</div>
 					</div>
@@ -36,28 +36,28 @@
 		</div>
 		<div class="az_cnt_1">
 			<div class="az_down_btn1">
-				<a class="az_down_btn1" :href="data.fileOptions[0].url">极速下载</a>
+				<a class="az_down_btn1" :href="data && data.fileOptions[0].url">极速下载</a>
 			</div>
 
 		</div>
 		<div class="az_cnt_ul">
 			<h5>简介</h5>
-			<div id="az_appcntlist1" :class="{'az_appcntlist':extend}">
+			<div id="az_appcntlist1" :class="{'az_appcntlist':extend1}">
 				<p>{{data.description}}</p>
 			</div>
 
 			<div class="az_toggle_btn" style="display: block;" @click="extend('extend1')">
-				<span id="az_open" class="{'az_up':!extend1}"></span>
+				<span id="az_open" :class="{'az_up':!extend1}"></span>
 			</div>
 		</div>
 	
 		<div class="az_cnt_ul">
 			<h5>更新说明</h5>
-			<div id="az_appcntlist2" :class="{'az_appcntlist':extend}">
+			<div id="az_appcntlist2" :class="{'az_appcntlist':extend2}">
 				<p>{{data.updateItems}}</p>
 			</div>
 			<div class="az_toggle_btn" style="display: block;" @click="extend('extend2')">
-				<span id="az_open" class="{'az_up':!extend2}"></span>
+				<span id="az_open" :class="{'az_up':!extend2}"></span>
 			</div>
 
 		</div>
@@ -84,6 +84,7 @@
 	export default {
 		data() {
 			return {
+				bloom:false,
 				data: "",
 				thisId: "",
 				good: 3,
@@ -99,11 +100,13 @@
 		},
 		methods: {
 			extend(index) {
-				this.index = !this.index;
-				//				console.log(this.index)
+				//console.log(this[index])
+				this[index] = !this[index];
+				//this.bloom=!this.bloom;
 			}
 		},
 		mounted() {
+			document.body.scrollTop = this.$route.meta.scrollLen;
 			console.log(this.$route)
 //			console.log(6666)
 //			console.log(this.$route.params.name);
@@ -117,10 +120,10 @@
 					url: urlStr
 				}
 			}).then(function(response) {
-				self.data = response.data.data[0];
+				self.data = response.data && response.data.data[0];
 				//				console.log(self.data)
 				//平均星级
-				var coms = response.data.data[0].ratingDist;
+				var coms = response.data && response.data.data[0].ratingDist;
 				var good = coms["好评"]
 				var bad = coms["差评"]
 				var justsoso = coms["中评"]

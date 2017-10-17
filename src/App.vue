@@ -3,16 +3,21 @@
 		<xheader></xheader>
 		<div style="width: 100%; height: 45px;"></div>
 		<transition :name="transitionName" mode="out-in">
-			<router-view></router-view>
+			
+				<router-view></router-view>
+			
+			
 		</transition>
 		<div style="width: 100%; height: 45px;"></div>
 		<xfooter></xfooter>
+		<xPersonal></xPersonal>
 	</div>
 </template>
 
 <script>
 	import xheader from './components/header/header.vue';
 	import xfooter from './components/footer/footer.vue';
+	import xPersonal from './components/Personal/personal.vue';
 	export default{
 		data(){
 			return{
@@ -28,7 +33,8 @@
 		},
 		components:{
 			xheader,
-			xfooter
+			xfooter,
+			xPersonal
 		},
 	}
 </script>

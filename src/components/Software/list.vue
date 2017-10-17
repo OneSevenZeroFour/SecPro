@@ -54,15 +54,21 @@
 			}
 		},
 		mounted(){
-			let keyrote = this.$route.params.list;
-			let num = this.$route.params.num;
-			this.rote = keyrote;
-			let page = this.page;
-			if(num=="hot"){
-				this.getSoteDate(keyrote,0,page);
+			if(!this.listData){
+				let keyrote = this.$route.params.list;
+				let num = this.$route.params.num;
+				this.rote = keyrote;
+				let page = this.page;
+				console.log(num,keyrote)
+				if(num=="hot"){
+					this.getSoteDate(keyrote,0,page);
+				}else{
+					this.getSoteDate(keyrote,1,page);
+				}	
 			}else{
-				this.getSoteDate(keyrote,1,page);
-			}	
+				console.log(this.listData)
+			}
+			
 		}
 	}
 </script>

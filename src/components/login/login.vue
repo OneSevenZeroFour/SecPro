@@ -78,6 +78,7 @@
 						name: 'userId',
 						val: val.data[0].id
 					})
+					this.$router.push({name:'recommend'})
 				} else {
 					this.$message({
 						message: val.msg,

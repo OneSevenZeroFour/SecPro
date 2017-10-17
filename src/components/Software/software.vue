@@ -37,6 +37,7 @@
 			};
 		},
 		mounted(){
+			document.body.scrollTop = this.$route.meta.scrollLen;
 			var currentRouter = this.$router.history.current.path;
 			///software/ranking
 			if(currentRouter=="/software/ranking"){
