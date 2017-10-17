@@ -48,6 +48,25 @@ app.get('/agency', function (req, res) {
 	});
 })
 
+app.get('/getWeathers', function (req, res) {
+	res.append('Access-Control-Allow-Origin', '*');
+	var data = req.query.city;
+	//data = encodeURI(data)
+	http.get(`http://www.sojson.com/open/api/weather/json.shtml?city=%E5%B9%BF%E5%B7%9E%E5%B8%82`, function (result) {
+		var data = "";
+		result.setEncoding('utf-8');
+		result.on("data", function (chunk) {
+			data += chunk;
+		})
+		result.on("end", function () {
+			//console.log(data)
+			res.send(JSON.stringify(data))
+		})
+	});
+})
+
+
+
 var server = http.createServer(app);
 
 server.listen(8080, function () {
@@ -56,4 +75,4 @@ server.listen(8080, function () {
 
 
 // 连接数据库
-//var router = require('./erp/router')(app);
+var router = require('./erp/router')(app);

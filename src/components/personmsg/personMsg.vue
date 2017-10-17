@@ -68,6 +68,7 @@
 		},
 		methods: {
 			backTo() {
+				
 				this.$router.go(-1);
 			},
 			changeMsg(index) {
@@ -82,6 +83,8 @@
 
 
 		mounted() {
+			//document.body.scrollTop = this.$route.meta.scrollLen;
+
 			let obj = {};
 			obj.id = cookie.get('userId');
 			this.$store.dispatch('personMsg/login', obj);

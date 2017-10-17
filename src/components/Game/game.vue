@@ -1,9 +1,9 @@
 <template>
     <div>
-        <search></search>
         <shuju></shuju>
     </div>
 </template>
+
 <script>
 import WeUI from 'weui';
 import search from './search.vue';

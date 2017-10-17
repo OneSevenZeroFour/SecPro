@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 import vPersonal from '../components/Personal/personal.vue';
 import xRecommend from '../components/recommend/recommend.vue';
 import vLogin from '../components/login/login.vue';
+import vsearch from '../components/search/search.vue';
 
 import vRegister from '../components/register/register.vue';
 import vPersonMsg from '../components/personmsg/personMsg.vue';
@@ -90,6 +91,10 @@ const routes = [{
 },{
 	path: '/',
 	redirect: '/recommend'
+},{
+	path: '/search',
+	name: 'search',
+	component: vsearch
 }];
 
 
@@ -97,6 +102,8 @@ const router = new VueRouter({
 	routes,
 //	mode: 'history'
 })
+
+
 
 router.beforeEach((to, from, next) => {
 	//console.log(document.body.scrollTop)

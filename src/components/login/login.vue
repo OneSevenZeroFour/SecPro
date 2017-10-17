@@ -75,14 +75,6 @@
 						type: 'success'
 					});
 					cookie.set({
-						name: 'username',
-						val: val.data[0].nickname || val.data[0].elephone
-					})
-					cookie.set({
-						name: 'userImg',
-						val: `${baseUrl}/src/assets/img/${val.data[0].avatar}` || baseUrl + '/src/assets/img/touxiang.jpg'
-					})
-					cookie.set({
 						name: 'userId',
 						val: val.data[0].id
 					})

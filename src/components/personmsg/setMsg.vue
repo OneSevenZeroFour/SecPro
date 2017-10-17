@@ -13,7 +13,8 @@
 <script>
 	import { cookie } from '../../util/cookie';
 	import { baseUrl } from '../../util/baseUrl';
-	
+	//import vRadio from './radio.vue';
+
 	export default {
 		data() {
 			return {
@@ -27,7 +28,7 @@
 			loading() {
 				return this.$store.state.dialog;
 			},
-			changeMsg(){
+			changeMsg() {
 				return this.$store.state.personMsg.changeMsg;
 			}
 		},
@@ -36,14 +37,14 @@
 				//console.log(data)
 				this.$store.dispatch('personMsg/update', data);
 			},
-			backTo(){
+			backTo() {
 				this.$router.go(-1);
 			}
 		},
-		watch:{
-			changeMsg(val, oVal){
-				if(val.status){
-					this.$router.push({name:'personMsg'})
+		watch: {
+			changeMsg(val, oVal) {
+				if (val.status) {
+					this.$router.push({ name: 'personMsg' })
 				}
 			}
 		},
@@ -64,7 +65,7 @@
 					self.headerTitle = '个人信息 手机号';
 					break;
 				case 2:
-					self.changeTemp = 'vRiado';
+					self.changeTemp = 'vRadio';
 					self.type = 'gender';
 					self.placeMsg = '请输入您的手机号';
 					self.headerTitle = '个人信息 性别';
@@ -96,6 +97,33 @@
 			}
 		},
 		components: {
+			vRadio: {
+				template: `
+				<div class="tempLink">
+					<div>
+						<el-radio class="radio" v-model="radio" label="男">男</el-radio>
+						<el-radio class="radio" v-model="radio" label="女">女</el-radio>
+					</div>
+					<el-button type="primary" class="update_btn" @click="updated">提交</el-button>
+				</div>
+				`,
+				data() {
+					return {
+						radio: '女'
+					}
+				},
+				props: ['placeMsg', 'type'],
+				methods: {
+					updated() {
+						let obj = {};
+						obj[this.type] = this.radio;
+						obj.id = cookie.get('userId');
+						//console.log(obj)
+						this.$emit('setmsg', obj)
+						//this.$store.dispatch('personMsg/update', obj);
+					}
+				}
+			},
 			vText: {
 				template: `
 				<div class="tempLink">
@@ -193,36 +221,6 @@
 				}
 
 			},
-			vRiado: {
-				template: `
-				<div class="tempLink">
-					<div class="">
-						<input type="radio" v-model="aaa" value="男"/>男
-						<input type="radio" v-model="aaa" value="女"/>女
-						
-					</div>
-					<el-button type="primary" class="update_btn" @click="updated">提交</el-button>
-				</div>
-				`,
-				data() {
-					return {
-						
-						aaa: '男'
-					}
-				},
-				props: ['placeMsg', 'type'],
-				methods: {
-					updated() {
-						
-						let obj = {};
-						obj[this.type] = this.radio1;
-						obj.id = cookie.get('userId');
-						//console.log(obj)
-						this.$emit('setmsg', obj)
-						//this.$emit('setmsg', obj);
-					}
-				}
-			},
 			vDate: {
 				template: `
 				<div class="tempLink">
@@ -241,7 +239,7 @@
 				data() {
 					return {
 						value1: '',
-						
+
 					}
 				},
 				props: ['placeMsg', 'type'],
@@ -249,9 +247,9 @@
 					updated() {
 						let obj = {};
 						let date = this.value1;
-						
+
 						obj[this.type] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-						
+
 						obj.id = cookie.get('userId');
 						//console.log(obj)
 						this.$emit('setmsg', obj)
@@ -314,7 +312,8 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
 .setMsg {
 	width: 100%;
 	font-size: 14px;
@@ -329,7 +328,7 @@
 	margin-bottom: 25px;
 	position: relative;
 	border-bottom: 1px solid #ccc;
-	i{
+	i {
 		position: absolute;
 		left: 10px;
 		top: 15px;
@@ -373,7 +372,8 @@
 	margin: 15px 10px;
 	width: 90%;
 }
-.pwdarea{
+
+.pwdarea {
 	margin: 10px 0;
 }
 </style>

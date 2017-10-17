@@ -3,7 +3,7 @@
 		<swiper-slide v-for="slide in swiperSlides" class='box'>
 			<div v-for="i in xm1" v-show="slide==0">
 				<div class="wbox" >
-					<a :href="i.url">
+					<a :href="'#/details/'+i.title">
 						<img :src="i.avatarUrl" alt="" />
 						<p>{{i.title}}</p>
 					</a>
@@ -11,7 +11,7 @@
 			</div>
 			<div v-for="i in xm2" v-show="slide==1">
 				<div class="wbox">
-					<a :href="i.url">
+					<a :href="'#/details/'+i.title">
 						<img :src="i.avatarUrl" alt="" />
 						<p>{{i.title}}</p>
 					</a>
@@ -19,7 +19,7 @@
 			</div>
 			<div v-for="i in xm3" v-show="slide==2">
 				<div class="wbox">
-					<a :href="i.url">
+					<a :href="'#/details/'+i.title">
 						<img :src="i.avatarUrl" alt="" />
 						<p>{{i.title}}</p>
 					</a>

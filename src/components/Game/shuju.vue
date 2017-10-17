@@ -3,11 +3,11 @@
         <div id="tab">
             <div @click="show(1)" :class="{'active':page1}">热门</div>
             <div @click="show(2)"  :class="{'active':page2}">最新</div>
-            <div @click="show(3)" :class="{'active':page3}">分类</div>
+            
         </div>
         <div class="page" v-if="page1">
             <div class="weui-panel weui-panel_access">
-                <div class="weui-panel__bd" v-for="a in tuijian">
+                <div class="weui-panel__bd" v-for="a in tj">
                     <a :href="'/#/details/'+a.title"  class="weui-media-box weui-media-box_appmsg">
                         <div class="weui-media-box__hd">
                             <img class="weui-media-box__thumb" :src="a.avatarUrl" alt="">
@@ -18,21 +18,21 @@
                         </div>
                     </a>
                     <div class="download">
-                        <span>下载</span>
+                        <a :href="a.fileOptions[0].url">下载</a>
                     </div>
                 </div>
-                <div class="weui-panel__ft">
+                <!--<div class="weui-panel__ft">
                     <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
                         <div class="weui-cell__bd">查看更多</div>
                         <span class="weui-cell__ft"></span>
                     </a>    
-                </div>
+                </div>-->
             </div>
         </div>
         <div class="page" v-if="page2">
             <div class="weui-panel weui-panel_access">
-                <div class="weui-panel__bd" v-for="b in zuixin">
-                    <a :href="'/#/details/'+a.title" class="weui-media-box weui-media-box_appmsg">
+                <div class="weui-panel__bd" v-for="b in zx">
+                    <a :href="'/#/details/'+b.title" class="weui-media-box weui-media-box_appmsg">
                         <div class="weui-media-box__hd">
                             <img class="weui-media-box__thumb" :src="b.avatarUrl" alt="">
                         </div>
@@ -42,21 +42,18 @@
                         </div>
                     </a>
                     <div class="download">
-                        <span>下载</span>
+                        <a :href="b.fileOptions[0].url">下载</a>
                     </div>
                 </div>
-                <div class="weui-panel__ft">
+                <!--<div class="weui-panel__ft">
                     <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
                         <div class="weui-cell__bd">查看更多</div>
                         <span class="weui-cell__ft"></span>
                     </a>    
-                </div>
+                </div>-->
             </div>
         </div>
-        <div class="page page3" v-if="page3">
-            <p v-for="c in fenlei" class="fenlei"><span>{{c.category}}</span></p>
-
-        </div>
+        
     </div>
 </template>
 <script>
@@ -178,6 +175,19 @@ export default {
     mounted(){
         this.getTJData("");
         this.getZXData("");
+    },
+    computed:{
+    	tj(){
+    		if(this.tuijian){
+	    		return this.tuijian
+	    	}
+    	},
+    	zx(){
+    		if(this.zuixin){
+	    		return this.zuixin
+	    	}
+    	}
+    	
     }
     
 }
@@ -222,7 +232,7 @@ export default {
         .download{
             padding-top:35px;
             width:60px;
-            span{
+            a{
                 color: #20A0FF;
                 width: 2.5rem;
                 text-align: center;

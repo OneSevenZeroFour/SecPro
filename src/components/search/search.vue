@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<h5>YouYou推荐</h5>
 		<div v-for="i in data" class="box">
 			<a :href="'#/details/'+i.title" class="lj">
 				<div class="left">
@@ -22,29 +21,19 @@
 	export default{
 		data(){
 			return{
-				sj:null,
+				
 			}
 		},
 		methods:{
 			
 		},
 		mounted(){
-			var xthis = this
-			setTimeout(function(){
-				xthis.axios.get('http://127.0.0.1:8080/agency',{
-					params:{
-						url:'http://120.76.205.241:8000/mobileapp/mobile360?sort=0&catid=%E5%A8%B1%E4%B9%90&apikey=p6LUkr1ZHWw3urhe6bXuTBIQ48ApGN5K3Xqvyiz3BWNuVeTWFWK6JVIBxJaPhuHo'
-					}
-				}).then(response => {
-						xthis.sj = response.data.data
-						console.log(xthis.sj)
-				}, response => {});
-			},5000);
+			
 		},
 		computed:{
 			data(){
-				if(this.sj){
-					return this.sj					
+				if(this.$store.state.xsearch){
+					return this.$store.state.xsearch				
 				}
 			}
 		}

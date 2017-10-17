@@ -15,7 +15,7 @@ module.exports = function (app) {
 	var storage = multer.diskStorage({
 		//设置上传后文件路径，uploads文件夹会自动创建。
 		destination: function (req, file, cb) {
-			cb(null, path.resolve(__dirname,'../../src/assets/img'));
+			cb(null, path.resolve(__dirname, '../../src/assets/img'));
 		},
 		//给上传文件重命名，获取添加后缀名
 		filename: function (req, file, cb) {
@@ -40,8 +40,10 @@ module.exports = function (app) {
 	});
 
 	app.post('/upload', function (req, res) {
-		
-		var target = {id:req.body.data.id};
+
+		var target = {
+			id: req.body.data.id
+		};
 		delete req.body.data.id;
 		var data = req.body.data;
 		console.log(data)
@@ -49,11 +51,9 @@ module.exports = function (app) {
 			sqlname: 'customer',
 			data,
 			target,
-			callback: function(data){
+			callback: function (data) {
 				res.send(data);
 			}
 		})
 	})
-
-	
 }
