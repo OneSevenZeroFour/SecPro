@@ -56,7 +56,6 @@
 			<div id="az_appcntlist2" :class="{'az_appcntlist':extend}">
 				<p>{{data.updateItems}}</p>
 			</div>
-
 			<div class="az_toggle_btn" style="display: block;" @click="extend('extend2')">
 				<span id="az_open" class="{'az_up':!extend2}"></span>
 			</div>
@@ -64,15 +63,14 @@
 		</div>
 		<div class="az_cnt_ul">
 			<h5><a>评论(共{{data.commentCount}}条)</a></h5> 
-			<div class="az_comment_cnt" v-for="n in commentData" :key="n.id">
-				<div class="az_comment_top">
+			<div class="az_comment_cnt" v-for="(n,index) in commentData" :key="n.id">
+				<div class="az_comment_top clear">
 					<span>{{n.commenterScreenName}}&nbsp;{{n.publishDateStr}}</span>
-					<span style="float:right;">
-							<img alt="" src="/images/star_01.png">
-							<img alt="" src="/images/star_01.png">
-							<img alt="" src="/images/star_01.png">
-							<img alt="" src="/images/star_03.png">
-							<img alt="" src="/images/star_03.png">
+					<!--v-for="n.rating" :key="n.id"-->
+					<span style="float:right;" >
+							<img  alt="" :src=goodStar v-for="t in 3" :key="n.id">
+							
+							<img alt="" :src=badStar v-for="t in 2" :key="n.id">
 						</span>
 				</div>
 				<p id="az_comment_as">{{n.content}}</p>
@@ -158,7 +156,7 @@
 			}).then(function(response) {
 				var allData = response.data.data;
 				self.commentData = allData.splice(0,10)
-				console.log(response)
+				console.log(response,self.commentData)
 			}).catch(function(response) {
 				console.log(response);
 			});
@@ -174,6 +172,10 @@
 </script>
 
 <style scoped>
+	
+	img{
+		display: inline-block;
+	}
 	.az_slider_title .az_icon_title {
 		/*background: url(../images/body_bg.png) no-repeat left;*/
 		padding-left: 10px;

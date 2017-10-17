@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-<<<<<<< HEAD
+
 import WeUI from 'weui';
 import search from './search.vue';
 import shuju from './shuju.vue';
