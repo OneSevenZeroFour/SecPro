@@ -7,7 +7,6 @@ import vPersonal from '../components/Personal/personal.vue';
 import vLogin from '../components/login/login.vue';
 import vRegister from '../components/register/register.vue';
 import vSoftware from '../components/Software/software.vue';
-import vGame from '../components/Game/game.vue';
 import vPersonMsg from '../components/personmsg/personMsg.vue';
 import vCollection from '../components/collection/collection.vue';
 import vSetMsg from '../components/personmsg/setMsg.vue';
@@ -15,9 +14,20 @@ import vSetMsg from '../components/personmsg/setMsg.vue';
 import vSote from '../components/Software/sote.vue';
 import vRanking from '../components/Software/ranking.vue';
 import vRecommend from '../components/Software/recommend.vue';
+<<<<<<< HEAD
 import vSoftwaresList from '../components/Software/softwarelist.vue';
 import vList from '../components/Software/list.vue';
 import vDetails from '../components/Software/details.vue';
+=======
+import vSetMsg from '../components/personmsg/setMsg.vue';
+import vSoftwaresList from '../components/Software/softwarelist.vue'
+import vList from '../components/Software/list.vue'
+import vDetails from '../components/Software/details.vue'
+
+import vGame from '../components/Game/game.vue';
+import VGameDataList from '../components/Game/datalist.vue';
+
+>>>>>>> 235e4ed0215b06a38fa07b657c782551c5e0d623
 
 const routes = [{
 	path: '/personal',
@@ -59,8 +69,12 @@ const routes = [{
 }, {
 	path: '/game',
 	name: 'game',
-//	component: vGame
-}, {
+	component: vGame
+},{
+	path: '/gamedatalist',
+	name: 'gamedatalist',
+	component: VGameDataList
+},{
 	path: '/personMsg',
 	name: 'personMsg',
 	component: vPersonMsg,
