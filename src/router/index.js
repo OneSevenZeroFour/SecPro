@@ -3,7 +3,6 @@ import Vue from 'vue';
 
 Vue.use(VueRouter);
 
-
 import vPersonal from '../components/Personal/personal.vue';
 import vLogin from '../components/login/login.vue';
 import vRegister from '../components/register/register.vue';
@@ -11,18 +10,14 @@ import vSoftware from '../components/Software/software.vue';
 import vGame from '../components/Game/game.vue';
 import vPersonMsg from '../components/personmsg/personMsg.vue';
 import vCollection from '../components/collection/collection.vue';
-
-
+import vSetMsg from '../components/personmsg/setMsg.vue';
+//中间软件路由部分
 import vSote from '../components/Software/sote.vue';
 import vRanking from '../components/Software/ranking.vue';
 import vRecommend from '../components/Software/recommend.vue';
-import vSetMsg from '../components/personmsg/setMsg.vue';
-import vSoftwaresList from '../components/Software/softwarelist.vue'
-import vList from '../components/Software/list.vue'
-import vDetails from '../components/Software/details.vue'
-
-//import vGame from '../components/Game/game.vue';
-
+import vSoftwaresList from '../components/Software/softwarelist.vue';
+import vList from '../components/Software/list.vue';
+import vDetails from '../components/Software/details.vue';
 
 const routes = [{
 	path: '/personal',

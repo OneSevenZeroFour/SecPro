@@ -172,7 +172,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.az_slider_title .az_icon_title {
 		/*background: url(../images/body_bg.png) no-repeat left;*/
 		padding-left: 10px;

@@ -59,7 +59,7 @@
 		}
 	}
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 	.software_header {
 		width: 180px;
 		margin: auto;

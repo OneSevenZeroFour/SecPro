@@ -67,7 +67,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 .sotes_list {
 	overflow: hidden;
 }

@@ -42,11 +42,7 @@
 							</router-link>
 		
 						<div class="download_bottom download_right">
-
-							
 								<a :href="t.fileOptions[0].url" download="t.com.yeezsoftky.tradermobile.qh">下载</a>
-							
-
 						</div>
 					</li>
 				</ul>
@@ -150,7 +146,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 
 body{
 		/*width: 125%;*/
