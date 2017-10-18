@@ -22,7 +22,7 @@
 			<span class="list-item-title">修改密码</span>
 			<i class="el-icon-arrow-right"></i>
 		</div>
-		<div class="out-link">
+		<div class="out-link" v-if="hasCookie">
 			<el-button type="danger" class="out-btn" @click="outLogin">退出登录</el-button>
 		</div>
 	</div>
@@ -36,6 +36,9 @@
 			personImg(){
 				let avatar = this.$store.state.login.data.avatar;
 				return `${baseUrl}/src/assets/img/${avatar || 'touxiang.jpg'}`;
+			},
+			hasCookie(){
+				return cookie.get('userId');
 			},
 			listArr() {
 

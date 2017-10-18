@@ -47,7 +47,7 @@ export const cookie = {
 
 		// document.cookie = name +'=xxx;expires=' + now.toUTCString();
 		this.set({
-			name,
+			name:'',
 			expires:now
 		});
 	}
