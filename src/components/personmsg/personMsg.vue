@@ -34,12 +34,12 @@
 	export default {
 		computed: {
 			personImg(){
-				let avatar = this.$store.state.personMsg.data.avatar;
+				let avatar = this.$store.state.login.data.avatar;
 				return `${baseUrl}/src/assets/img/${avatar || 'touxiang.jpg'}`;
 			},
 			listArr() {
 
-				let data = this.$store.state.personMsg.data;
+				let data = this.$store.state.login.data;
 				let elephone = data.elephone;
 				let ele = elephone && elephone.slice(0, 3) + '******' + elephone.slice(elephone.length - 2, elephone.length);
 
