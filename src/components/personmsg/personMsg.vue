@@ -76,7 +76,8 @@
 				this.$router.push({ name: 'setMsg', params: { index } });
 			},
 			outLogin(){
-				
+				cookie.remove('userId');
+				this.$router.push({name: 'recommend'})
 			}
 
 		},
