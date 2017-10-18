@@ -8,14 +8,15 @@ import register from '../components/register/register';
 import personMsg from '../components/personmsg/personMsg';
 
 export default new Vuex.Store({
-	state: {
-		dialog: false,
-		xsearch:null,
-		personal: ''
-	},
-	modules: {
-		login,
-		register,
-		personMsg
-	}
+    state: {
+        userId: '',
+        dialog: false,
+        xsearch: null,
+        personal: ''
+    },
+    modules: {
+        login,
+        register,
+        personMsg
+    }
 })

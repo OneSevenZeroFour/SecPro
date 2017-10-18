@@ -13,7 +13,7 @@
 				</div>
 				<div class="side-nav">
 					<ul>
-						<li v-for="(item, index) in sideArr" :index="index">
+						<li v-for="(item, index) in sideArr" :key="index">
 							<router-link :to="item.link">
 								<i :class="'iconfont ' + item.icon "></i>
 								<span class="side-nav-item-title">{{item.name}}</span>
@@ -32,9 +32,9 @@
 
 
 	export default {
-		mounted(){
-			document.body.scrollTop = this.$route.meta.scrollLen
-		},
+        mounted(){
+             this.$store.dispatch('login/login',{id:cookie.get('userId')})
+        },
 		data() {
 			return {
 				//classBack: '',
@@ -62,6 +62,9 @@
 			}
 		},
 		computed: {
+            userCookie(){
+                return this.$store.state.userId;
+            },
 			loginTick() {
 				let data = this.$store.state.login.data;
 				if(data.data){
@@ -73,7 +76,7 @@
 			personalImg() {
 				let data = this.$store.state.login.data;
 				if(data.data){
-					return `${baseUrl}/src/assets/img/${data.data[0].avatar}` || `${baseUrl}/src/assets/img/touxiang.jpg`;
+					return `${baseUrl}/src/assets/img/${data.data[0].avatar || 'touxiang.jpg'}`;
 				}else{
 					return `${baseUrl}/src/assets/img/touxiang.jpg`;
 				}
@@ -165,57 +168,57 @@
 	top: 0;
 	background: rgba(0, 0, 0, 0);
 	.side {
-		width: 240px;
+		width: 20.512821rem;
 		height: 100%;
 		background: #fff;
 		.side-header {
 			box-sizing: border-box;
-			height: 140px;
+			height: 11.965812rem;
 			width: 100%;
-			border-bottom: 1px solid #ccc;
+			border-bottom: .08547rem solid #ccc;
 			background: url('../../assets/img/beijing2.jpg') no-repeat;
 			background-position: center center;
 			.side-header-bor {
-				padding-top: 50px;
-				padding-left: 20px;
+				padding-top: 4.273504rem;
+				padding-left: 1.709402rem;
 				overflow: hidden;
 				.side-h-img {
 					float: left;
 					img {
-						width: 40px;
-						height: 40px;
+						width: 3.418803rem;
+						height: 3.418803rem;
 						border-radius: 50%;
 					}
 				}
 				.side-h-title {
 					float: left;
 					color: #666;
-					font-size: 18px;
-					margin-left: 10px;
-					line-height: 50px;
+					font-size: 1.538462rem;
+					margin-left: .854701rem;
+					line-height: 4.273504rem;
 				}
 			}
 			.sid-h-diy {
-				font-size: 12px;
-				line-height: 20px;
-				padding-left: 20px;
+				font-size: 1.025641rem;
+				line-height: 1.709402rem;
+				padding-left: 1.709402rem;
 				color: #fff;
 			}
 		}
 		.side-nav {
 			ul {
-				padding-left: 10px;
+				padding-left: .854701rem;
 			}
 			li {
-				padding: 10px;
+				padding: .854701rem;
 				a {
 					color: #666;
 					i {
-						font-size: 20px;
+						font-size: 1.709402rem;
 					}
 					span {
-						font-size: 16px;
-						margin-left: 8px;
+						font-size: 1.367521rem;
+						margin-left: .683761rem;
 					}
 				}
 			}

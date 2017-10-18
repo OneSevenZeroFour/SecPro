@@ -1,6 +1,6 @@
 <template>
 	<div id="software_sote">
-		<li class="software_sote_list" v-for="n in cont">
+		<li class="software_sote_list" v-for="(n, index) in cont" :key="index">
 			<div class="list_one" >
 				<div class="sote_img"><img :src="n.img" alt="" /></div>
 				<a :href="'/#/softwarelist/'+n.title+'/hot'"><h5 class="sote_title" >{{n.title}}<i class="el-icon-arrow-right"></i></h5></a>
@@ -75,7 +75,7 @@
 .software_sote_list {
 	display: flex;
 	padding: 1rem 0;
-	border-bottom: 7px solid #D9D9D9;
+	border-bottom: .598291rem solid #D9D9D9;
 }
 
 .list_one {

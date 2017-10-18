@@ -1,6 +1,6 @@
 <template>
 	<div id="software_list_page">
-		<h4 class="list_title"><a  herf="/#/software/sote">&lt </a>{{this.rote}}</h4>
+		<h4 class="list_title"><a  herf="/#/software/sote">&lt; </a>{{this.rote}}</h4>
 		<div class="listtwo">
 			<div class="btntwo" v-for="(item, index) in list" :key="item.name" :name="item.name" @click="setIndex(index)">
 				<router-link :class="{'now':Value==index}" :to="'/softwarelist/'+rote+'/'+item.url" :name="item.name">{{item.title}} </router-link>

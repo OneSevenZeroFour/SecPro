@@ -1,32 +1,49 @@
-html{
-	font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-	font-size:12px;
-}
-html{
-	overflow-x: hidden;
-	overflow-y: auto
-}
-ul,li{
-	list-style: none;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+    font-size: 1.025641rem;
 }
 
-input{
-	outline: none;
+html {
+    overflow-x: hidden;
+    overflow-y: auto
 }
 
-img{
-	display: block;
-	border: 0;
+ul,
+li {
+    list-style: none;
 }
 
-html,body,h1,h2,h3,h4,h5,h6,p{
-	margin: 0;
-	padding: 0;
-	font-weight: normal;
+input {
+    outline: none;
 }
 
-
-a{
-	text-decoration: none;
+img {
+    display: block;
+    border: 0;
 }
 
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+.weui-media-box__desc {
+    font-size: 1.111111rem
+}
+
+.weui-media-box_appmsg .weui-media-box__hd {
+    height: 5.128205rem
+}

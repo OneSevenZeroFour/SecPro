@@ -47,6 +47,6 @@
 	.lb{
 		display: block;
 		width: 100%;
-		height: 150px;
+		height: 12.820513rem;
 	}
 </style>

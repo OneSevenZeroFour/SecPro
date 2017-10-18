@@ -66,31 +66,32 @@
 	}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 	.lb{
 		display: block;
 		width: 100%;
-		height: 150px;
+		height: 12.820513rem;
 	}
 	.wbox{
 		float: left;
-		margin-left: 15px;
+		margin-left: 1.282051rem;
 	}
 	.wbox a{
 		text-decoration: none;
 		color: black;
 	}
 	.wbox img{
-		width: 72px;
+		width: 6.153846rem;
 	}
 	.wbox p{
-		font-size: 12px;
-		width: 72px;
+		font-size: 14px;
+		width: 6.153846rem;
 		text-align: center;
-		height: 40px;
-		line-height: 20px;
+		//height: 3.418803rem;
+        line-height: 1.6;
+        color: #233;
 	}
 	.box{
-		border-bottom: 1px solid #D3DCE6;
+		border-bottom: .08547rem solid #D3DCE6;
 	}
 </style>

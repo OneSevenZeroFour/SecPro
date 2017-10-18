@@ -1,6 +1,6 @@
 <template>
 	<div class="footer">
-		<div class="lu" v-for="(i,index) in arr" @click="cf(index)" :class="{'cb':index==xid}">
+		<div class="lu" v-for="(i,index) in arr" :key="index" @click="cf(index)" :class="{'cb':index==xid}">
 			<a :href="i.url">
 				<!--<span :class="{'bh':index==xid}"></span>-->
 				<p :class="{'ys':index==xid}">{{i.title}}</p>				
@@ -9,25 +9,26 @@
 	</div>
 </template>
 <script>
+import { baseUrl} from '../../util/baseUrl';
 export default {
 	data(){
 		return {
 			arr:[{
 				id:0,
 				title:'推荐',
-				url:'http://localhost:8080/#/recommend'
+				url:`${baseUrl}/#/recommend`
 			},{
 				id:1,
 				title:'软件',
-				url:'http://localhost:8080/#/software/recommend'
+				url:`${baseUrl}/#/software/recommend`
 			},{
 				id:2,
 				title:'游戏',
-				url:'http://localhost:8080/#/game'
+				url:`${baseUrl}/#/game`
 			},{
 				id:3,
 				title:'个人中心',
-				url:'http://localhost:8080/#/personMsg'
+				url:`${baseUrl}/#/personMsg`
 			},],
 			xid:null
 		}
@@ -50,12 +51,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	.footer{z-index: 10000;width: 100%;height: 45px;position: fixed;bottom: 0;left: 0;background: white;border:1px solid #D3DCE6;}
-	.lu{width: (98.8%)/4;height: 45px; float: left; border-right: 1px solid #D3DCE6;}
+	.footer{z-index: 10000;width: 100%;height: 3.846154rem;position: fixed;bottom: 0;left: 0;background: white;border:.08547rem solid #D3DCE6;}
+	.lu{width: 25%;box-sizing:border-box; height: 3.846154rem; float: left; border-right: .08547rem solid #D3DCE6;}
 	.lu a{text-decoration: none; color: black;}
-	.lu span{width: 100%;border: 1px solid white;display: block;}
-	.lu .bh{border: 1px solid orangered;}
+	.lu span{width: 100%;border: .08547rem solid white;display: block;}
+	.lu .bh{border: .08547rem solid orangered;}
 	.cb{background: #20a0ff;}
 	.ys{color: white;}
-	.lu p{font-size: 16px; text-align: center;line-height: 43px;}
+	.lu p{font-size: 1.367521rem; text-align: center;line-height: 3.675214rem;}
 </style>

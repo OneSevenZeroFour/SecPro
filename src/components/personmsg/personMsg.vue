@@ -35,7 +35,7 @@
 		computed: {
 			personImg(){
 				let avatar = this.$store.state.personMsg.data.avatar;
-				return avatar && `${baseUrl}/src/assets/img/${avatar}`;
+				return `${baseUrl}/src/assets/img/${avatar || 'touxiang.jpg'}`;
 			},
 			listArr() {
 
@@ -69,7 +69,7 @@
 		methods: {
 			backTo() {
 				
-				this.$router.go(-1);
+				this.$router.push({name: 'recommend'});
 			},
 			changeMsg(index) {
 				//console.log(index)
@@ -97,83 +97,83 @@
 .personMsg {
 	width: 100%;
 	height: 100%;
-	font-size: 13px;
+	font-size: 1.111111rem;
 	color: #333;
 	background: #efefef;
 }
 
 .pmsg-header {
 	background: #fff;
-	padding: 10px;
-	border-bottom: 1px solid #ccc;
+	padding: .854701rem;
+	border-bottom: .08547rem solid #ccc;
 	.pmsg-h-title {
-		font-size: 16px;
-		margin-left: 20px;
+		font-size: 1.367521rem;
+		margin-left: 1.709402rem;
 	}
 }
 
 .first-link-img {
 	background: #fff;
-	padding: 10px;
+	padding: .854701rem;
 	position: relative;
-	margin-bottom: 10px;
+	margin-bottom: .854701rem;
 	.list-item-img {
 		float: right;
-		margin-right: 20px;
+		margin-right: 1.709402rem;
 		img {
-			width: 60px;
-			height: 60px;
+			width: 5.128205rem;
+			height: 5.128205rem;
 			border-radius: 50%;
 		}
 	}
 	.list-item-title {
-		line-height: 70px;
+		line-height: 5.982906rem;
 	}
 	i {
 		position: absolute;
-		right: 10px;
-		top: 40px;
+		right: .854701rem;
+		top: 3.418803rem;
 	}
 }
 
 .sec-link {
 	background: #fff;
-	margin-bottom: 10px;
+	margin-bottom: .854701rem;
 	.list-item {
-		padding: 16px 10px;
+		padding: 1.367521rem .854701rem;
 		position: relative;
 	}
 	.list-item-value {
 		float: right;
-		margin-right: 20px;
+		margin-right: 1.709402rem;
 		color: #999;
 	}
 	i {
-		font-size: 10px;
+		font-size: .854701rem;
 		position: absolute;
-		right: 10px;
-		top: 18px;
+		right: .854701rem;
+		top: 1.538462rem;
 	}
 }
 
 .thr-link {
 	background: #fff;
-	margin-bottom: 10px;
-	padding: 16px 10px;
+	margin-bottom: .854701rem;
+	padding: 1.367521rem .854701rem;
 	position: relative;
 
 	i {
-		font-size: 10px;
+		font-size: .854701rem;
 		position: absolute;
-		right: 10px;
-		top: 18px;
+		right: .854701rem;
+		top: 1.538462rem;
 	}
 }
 
 .out-link {
-	margin-top: 10px;
+	margin-top: .854701rem;
 	.out-btn {
-		margin-left: 10px;
+		margin-left: .854701rem;
 		width: 90%;
 	}
 }

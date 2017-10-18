@@ -316,34 +316,34 @@
 
 .setMsg {
 	width: 100%;
-	font-size: 14px;
+	font-size: 1.196581rem;
 	color: #333;
 }
 
 .sm-header {
-	font-size: 16px;
-	line-height: 25px;
-	padding: 10px 0;
+	font-size: 1.367521rem;
+	line-height: 2.136752rem;
+	padding: .854701rem 0;
 	text-align: center;
-	margin-bottom: 25px;
+	margin-bottom: 2.136752rem;
 	position: relative;
-	border-bottom: 1px solid #ccc;
+	border-bottom: .08547rem solid #ccc;
 	i {
 		position: absolute;
-		left: 10px;
-		top: 15px;
+		left: .854701rem;
+		top: 1.282051rem;
 	}
 }
 
 .tempLink {
-	padding: 0 20px;
+	padding: 0 1.709402rem;
 }
 </style>
 
 <style>
 .avatar-uploader .el-upload {
-	border: 1px dashed #d9d9d9;
-	border-radius: 6px;
+	border: .08547rem dashed #d9d9d9;
+	border-radius: .512821rem;
 	cursor: pointer;
 	position: relative;
 	overflow: hidden;
@@ -354,26 +354,26 @@
 }
 
 .avatar-uploader-icon {
-	font-size: 28px;
+	font-size: 2.393162rem;
 	color: #8c939d;
-	width: 178px;
-	height: 178px;
-	line-height: 178px;
+	width: 15.213675rem;
+	height: 15.213675rem;
+	line-height: 15.213675rem;
 	text-align: center;
 }
 
 .avatar {
-	width: 178px;
-	height: 178px;
+	width: 15.213675rem;
+	height: 15.213675rem;
 	display: block;
 }
 
 .update_btn {
-	margin: 15px 10px;
+	margin: 1.282051rem .854701rem;
 	width: 90%;
 }
 
 .pwdarea {
-	margin: 10px 0;
+	margin: .854701rem 0;
 }
 </style>

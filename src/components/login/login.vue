@@ -77,7 +77,8 @@
 					cookie.set({
 						name: 'userId',
 						val: val.data[0].id
-					})
+                    })
+                    this.$store.state.userId = val.data.insertId;
 					this.$router.push({name:'recommend'})
 				} else {
 					this.$message({
@@ -97,8 +98,8 @@
 }
 
 .linkTo {
-	padding: 20px 40px 0 0;
-	font-size: 16px;
+	padding: 1.709402rem 3.418803rem 0 0;
+	font-size: 1.367521rem;
 	a {
 		color: #20a0ff;
 		float: right;
@@ -106,30 +107,30 @@
 }
 
 .l-pic {
-	padding-top: 70px;
+	padding-top: 5.982906rem;
 	text-align: center;
 	.pic-box {
 		display: inline-block;
 
 		img {
-			width: 100px;
-			height: 100px;
+			width: 8.547009rem;
+			height: 8.547009rem;
 			border-radius: 50%;
 		}
 	}
 }
 
 .l-form {
-	padding-top: 30px;
-	padding-left: 40px;
-	padding-right: 40px;
+	padding-top: 2.564103rem;
+	padding-left: 3.418803rem;
+	padding-right: 3.418803rem;
 	text-align: center; //overflow: hidden;
 	.l-input {
-		margin: 10px 0;
+		margin: .854701rem 0;
 	}
 	.l-btn {
 		display: inline-block;
-		margin-top: 20px;
+		margin-top: 1.709402rem;
 		width: 90%;
 	}
 }
