@@ -2,6 +2,7 @@
 	<div class="login">
 		<div class="linkTo">
 			<router-link :to="{name:'register'}">快速注册</router-link>
+			<i class="el-icon-arrow-left" @click="backTO" style="margin-left:20px;"></i>
 		</div>
 		<div class="l-pic">
 			<div class="pic-box">
@@ -36,6 +37,9 @@
 			}
 		},
 		methods: {
+			backTO(){
+				this.$router.push({name: 'recommend'})
+			},
 			login() {
 				var eleReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
 				var emailReg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
