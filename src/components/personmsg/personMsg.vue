@@ -33,11 +33,11 @@
 
 	export default {
 		computed: {
-			personImg(){
+			personImg() {
 				let avatar = this.$store.state.login.data.avatar;
 				return `${baseUrl}/src/assets/img/${avatar || 'touxiang.jpg'}`;
 			},
-			hasCookie(){
+			hasCookie() {
 				return cookie.get('userId');
 			},
 			listArr() {
@@ -65,22 +65,22 @@
 
 				return arr;
 			},
-			loading(){
+			loading() {
 				return this.$store.state.dialog;
 			}
 		},
 		methods: {
 			backTo() {
-				
-				this.$router.push({name: 'recommend'});
+
+				this.$router.push({ name: 'recommend' });
 			},
 			changeMsg(index) {
 				//console.log(index)
 				this.$router.push({ name: 'setMsg', params: { index } });
 			},
-			outLogin(){
+			outLogin() {
 				cookie.remove('userId');
-				this.$router.push({name: 'recommend'})
+				this.$router.push({ name: 'recommend' })
 			}
 
 		},
@@ -88,10 +88,14 @@
 
 		mounted() {
 			//document.body.scrollTop = this.$route.meta.scrollLen;
+			if (!cookie.get('userId')) {
+				this.$router.push({ name: 'login' })
+			} else {
+				let obj = {};
+				obj.id = cookie.get('userId');
+				this.$store.dispatch('personMsg/login', obj);
+			}
 
-			let obj = {};
-			obj.id = cookie.get('userId');
-			this.$store.dispatch('personMsg/login', obj);
 		},
 
 	}
